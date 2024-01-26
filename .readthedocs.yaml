@@ -27,6 +27,8 @@ sphinx:
 # Optional but recommended, declare the Python requirements required
 # to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
-# python:
-#    install:
-#    - requirements: docs/requirements.txt
+python:
+  version: 3.12
+  install:
+#   - requirements: docs/requirements.txt  # 添加这一行，指定你的 requirements 文件的路径
+    - sphinx-rtd-theme  # 添加这一行，直接指定安装 sphinx_rtd_theme
