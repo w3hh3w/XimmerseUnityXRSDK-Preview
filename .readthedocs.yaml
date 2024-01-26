@@ -30,4 +30,5 @@ sphinx:
 python:
   version: 3.12
   install:
-    - name: sphinx-rtd-theme
+#   - requirements: docs/requirements.txt
+    - name: sphinx-rtd-theme  # 修改为使用正确的字典格式
