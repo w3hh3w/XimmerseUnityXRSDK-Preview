@@ -30,5 +30,4 @@ sphinx:
 python:
   version: 3.12
   install:
-#   - requirements: docs/requirements.txt  # 添加这一行，指定你的 requirements 文件的路径
-    - sphinx-rtd-theme  # 添加这一行，直接指定安装 sphinx_rtd_theme
+    - name: sphinx-rtd-theme
