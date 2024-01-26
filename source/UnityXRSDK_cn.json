@@ -1,0 +1,87 @@
+{
+	"sdks":[ 
+        {
+            "name": "Unity SDK",
+            "file": "/sdkconf/Unity.json" 
+        },
+        {
+            "name": "边缘渲染",
+            "file": "/sdkconf/CloudXR.json" 
+        }
+    ], 
+	"name": "边缘渲染",
+	"doclink": "https://developer.ximmerse.com/sdkconf/cloudxr/index.html",
+	"downloadlink": "https://developer.ximmerse.com/release/cloudxr/cloudxr_v0.4.04_20210918.zip",
+	"demolink": "https://gitee.com/rhionx",
+	"profile": "边缘渲染SDK是实现PC XR应用无线串流到Rhino X头显的工具包。",
+	"time": "2021-09-18",
+	"size": "19.3MB",
+	"version": "v0.4.04",
+	"platform": "Android & Windows",
+	"releases": [
+		{
+			"version": "v0.4.04",
+			"size": "14MB",
+			"time": "2021-09-18",
+			"platform": "Android & Windows",
+			"info": "sdfadadf",
+			"feats": [
+				"优化大空间定位",
+				"修改签名文件，使用固定的签名文件",
+				"修复部分Crash问题",
+				"Nvidia CloudXR Server升级至3.0(请向技术支持人员获取CloudXR-Setup_v3.0.rar)"
+			],
+			"bugs": [
+				"无更新"
+			]
+		},
+		{
+			"version": "v0.3.16",
+			"size": "19.3MB",
+			"time": "2021-07-20",
+			"platform": "Android & Windows",
+			"info": "sdfadadf",
+			"feats": [
+				"优化大空间定位(实验功能)",
+				"优化虚实对齐效果",
+				"修改签名文件"
+			],
+			"bugs": [
+				"无更新"
+			]
+		},
+		{
+			"version": "v0.3.14",
+			"size": "55MB",
+			"time": "2021-07-06",
+			"platform": "Android & Windows",
+			"info": "sdfadadf",
+			"feats": [
+				"将打开Option界面的按键由长按手柄Home键修改为长按手柄Menu键",
+				"优化虚实对齐效果",
+				"集成大空间定位功能(实验功能)",
+				"添加大空间Beacon配置文件(实验功能)",
+				"添加只使用IMU rotation数据的功能",
+				"修改App名称和图标"
+			],
+			"bugs": [
+				"解决没有配置文件时无法弹出输入IP的界面的问题",
+				"解决服务器断开后弹出输入IP的界面手柄无法使用的问题",
+				"解决删除IP列表所有的IP之后自动添加默认IP的问题",
+				"解决手动输入IP后概率性无法连接到服务器的问题",
+				"解决无法打开Option界面的问题"
+			]
+		},
+		{
+			"version": "v0.3.9",
+			"size": "55MB",
+			"time": "2021-06-09",
+			"platform": "Android & Windows",
+			"info": "sdfadadf",
+			"feats": [
+				"解决Tag控制器没有跟踪数据的问题",
+				"添加UI进行服务器地址的管理(输入IP, 添加IP列表)， 可以通过长按手柄HOME键调出UI或者在服务器无法连接时自动弹出此界面"
+			]
+		}
+	]
+}
