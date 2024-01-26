@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手势交互操作说明 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="开发指引" href="chapter_4_3_3_Development_Instruction.html" />
+    <link rel="prev" title="手部跟踪数据" href="chapter_4_3_1_Hand_TrackingData.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id2">4.1 手柄&amp;头显输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#tag">4.2 Tag跟踪</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../chapter_4.html#id3">4.3 手部跟踪</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_1_Hand_TrackingData.html">手部跟踪数据</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">手势交互操作说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">交互状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">交互方式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_3_Development_Instruction.html">开发指引</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_4.html">4.SDK功能介绍</a> &raquo;</li>
+      <li>手势交互操作说明</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Hand_Tracking/chapter_4_3_2_Gesture_Interaction_Instruction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gesture-interaction-instruction">
+<span id="id1"></span><h1>手势交互操作说明<a class="headerlink" href="#gesture-interaction-instruction" title="Permalink to this heading"></a></h1>
+<p>我们提供了几种常用的标准手势交互方式，如果您需要在项目中使用标准手势，建议您详细阅读下面的标准使用方法。</p>
+<section id="id2">
+<h2>交互状态<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>用户可以通过头部瞄准光标对准交互物体，同时用户手势切换，来实现在MR世界中的交互动作。在这个过程中有以下交互状态：
+<strong>默认状态</strong>、 <strong>准备状态</strong> 以及 <strong>确认状态</strong>  。</p>
+<img alt="../_images/cursor_gesture.png" src="../_images/cursor_gesture.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>通常情况下，为避免用户视线被干扰，虚拟手部模型（Virtural Hand Model）建议设置为关闭状态，
+头瞄光标状态的切换可以提示用户的手势输入已经被识别，且与虚拟世界有交互关系。</p>
+</div>
+</section>
+<section id="id3">
+<h2>交互方式<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>对于在MR世界中的UI界面，交互方式主要有两种：单击、拖动。</p>
+<p><strong>单击</strong> ：用户通过头瞄光标对准UI组件，如Toggle、Button等，同时进行切换手势（从准备手势至确认手势），即可与UI组件进行交互。</p>
+<img alt="../_images/handclick.gif" src="../_images/handclick.gif" />
+<p><strong>拖动</strong> ：用户通过头瞄光标对准UI组件，如Slider，同时手势从准备手势切换至确认手势，保持确认手势，并通过确认手势的移动，控制UI组件数值的变化。</p>
+<img alt="../_images/handdrag.gif" src="../_images/handdrag.gif" />
+<p>对于在MR世界中具有三维坐标的物体，交互方式有移动等。</p>
+<p><strong>移动</strong> ：用户通过头瞄光标对准及切换手势选中物体后，头显与物体的距离不变，然后通过移动头部来控制物体移动，松开确认手势后退出移动操纵。</p>
+<img alt="../_images/handmove.gif" src="../_images/handmove.gif" />
+<p><strong>手势绘画</strong> ：用户可以通过确认手势-OK手势，在虚拟世界中进行画画绘制。并可以通过再次确认手势-握拳手势将已有的绘画内容清除。</p>
+<img alt="../_images/handpaint.gif" src="../_images/handpaint.gif" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter_4_3_1_Hand_TrackingData.html" class="btn btn-neutral float-left" title="手部跟踪数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_4_3_3_Development_Instruction.html" class="btn btn-neutral float-right" title="开发指引" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开发指引 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.API文档" href="../chapter_5.html" />
+    <link rel="prev" title="手势交互操作说明" href="chapter_4_3_2_Gesture_Interaction_Instruction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id2">4.1 手柄&amp;头显输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#tag">4.2 Tag跟踪</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../chapter_4.html#id3">4.3 手部跟踪</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_1_Hand_TrackingData.html">手部跟踪数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_2_Gesture_Interaction_Instruction.html">手势交互操作说明</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">开发指引</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1. 前期准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2. 添加手势跟踪配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3. 添加手势关节预制体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4. 添加注视点手势交互组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">5. 创建交互对象</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">6. 补充说明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_4.html">4.SDK功能介绍</a> &raquo;</li>
+      <li>开发指引</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Hand_Tracking/chapter_4_3_3_Development_Instruction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-instruction">
+<span id="id1"></span><h1>开发指引<a class="headerlink" href="#development-instruction" title="Permalink to this heading"></a></h1>
+<section id="id2">
+<h2>1. 前期准备<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>准备一台 <strong>RhinoX Pro</strong> 头显（RhinoX一代头显不支持手势）</p></li>
+<li><p>按照 <a class="reference internal" href="../chapter_3.html#id1"><span class="std std-ref">入门指南</span></a> 导入SDK并完成相关配置</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>2. 添加手势跟踪配置<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>勾选XR Settings中的Hand Tracking选项</p></li>
+</ol>
+<img alt="../_images/4_3_2image8.png" src="../_images/4_3_2image8.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>XR Settings 路径：Assets/XR/Settings/XR Settings.asset。</p></li>
+</ul>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>在InputActionManager的Action Assets中添加Hand Tracking Input Assets</p></li>
+</ol>
+<img alt="../_images/inputactionmanager.png" src="../_images/inputactionmanager.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>XR Origin必须为ActionBase，如果不是，请重新创建.</p>
+</div>
+</section>
+<section id="id4">
+<h2>3. 添加手势关节预制体<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<p>此步骤为 <strong>非必须项</strong> ，如果您希望在使用过程中观察手势骨架，您可以添加此预制体。当然，您也可以自行创建脚本，在使用
+过程中手动控制是否显示手势骨架。</p>
+<p>创建方式：Hierarchy面板鼠标右键 Ximmerse XR -&gt; Virtual Hand Model。</p>
+<img alt="../_images/4_3_1image4.png" src="../_images/4_3_1image4.png" />
+<p>路径: Packages/com.ximmerse.xr/Resources/Gesture/Virtual Hand Model.prefab</p>
+<p>使用此预制体，开发者可以在内容中渲染被跟踪手部的虚拟手对象。</p>
+<img alt="../_images/4_3_1image3.png" src="../_images/4_3_1image3.png" />
+<p><strong>至此，您的工程已经具备了手势数据获取的功能</strong></p>
+<p>如果您希望自定义手势交互方式，您可以自行通过API获取数据来实现；</p>
+<p>如果您希望使用标准的注视点手势交互方式，您可以继续接下来的步骤。</p>
+</section>
+<section id="id5">
+<h2>4. 添加注视点手势交互组件<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<section id="gazeandhandinteractionsystem">
+<h3>1. 添加GazeAndHandInteractionSystem组件<a class="headerlink" href="#gazeandhandinteractionsystem" title="Permalink to this heading"></a></h3>
+<p>此组件为注视点手势交互的系统组件， 场景中必须存在此组件才能实现注视点手势交互。</p>
+<p>创建方式：Hierarchy面板点击鼠标右键，点击Ximmerse XR -&gt; Gaze And Hand InteractionSystem</p>
+<img alt="../_images/4_3_2image5.png" src="../_images/4_3_2image5.png" />
+<p><strong>Cursor State Image</strong>：选择Custom可修改光标在默认、跟踪手部以及选中交互物体三种状态下的图案显示，如果选中Default则为SDK默认图案。</p>
+<p><strong>Eye Ray GO</strong>：选择custom可自定义头瞄射线交互组件，如果选中Default则为SDK默认配置。</p>
+<img alt="../_images/4_3_2image7.png" src="../_images/4_3_2image7.png" />
+<img alt="../_images/4_3_2image9.png" src="../_images/4_3_2image9.png" />
+</section>
+<section id="eye-ray">
+<h3>2. 添加Eye Ray组件<a class="headerlink" href="#eye-ray" title="Permalink to this heading"></a></h3>
+<p>Eye Ray为注视点射线组件，创建方式：Hierarchy面板点击鼠标右键，点击Ximmerse XR-&gt;Eye Ray。</p>
+<img alt="../_images/4_3_2image6.png" src="../_images/4_3_2image6.png" />
+<p>创建完成后此组件会显示在XR Origin（ActionBase）/CameraOffset下面，与手柄组件类似</p>
+<img alt="../_images/eyeray.png" src="../_images/eyeray.png" />
+<p>此对象上的Eye Reticle组件代表注视点射线。 它实际上是继承于 Unity 的 XRRayInteractor 的一个射线的实现类。其位置和双目中心点位置重合，方向等同于双目直视前方的方向。</p>
+<img alt="../_images/4_3_2image3.png" src="../_images/4_3_2image3.png" />
+<p>Eye Ray上还有一个 XRController 组件，此组件响应手势输入，并与 Eye Reticle 射线搭配完成交互功能。</p>
+<img alt="../_images/4_3_2image1.png" src="../_images/4_3_2image1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>该组件会在XR Origin/CameraOffset下生成，使用过程中如果不需要修改其配置可默认不生成。</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>5. 创建交互对象<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<p>您只需要按照标准的Unity XR交互方式创建交互对象即可实现常规的交互功能，如：在模型上添加 XRGrabInteractable脚本
+实现抓取；添加Button实现按键点击等等。</p>
+</section>
+<section id="id7">
+<h2>6. 补充说明<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<p>我们基于Unity Input System提供了一套手势交互的映射配置，名称为：Hand Tracking Input Assets</p>
+<img alt="../_images/4_3_2image2.png" src="../_images/4_3_2image2.png" />
+<p>这里我们将手势动作与交互行为进行绑定，点击Edit asset可以查看配置列表</p>
+<img alt="../_images/inputasset.png" src="../_images/inputasset.png" />
+<p>一般来说，开发者不需要做任何编码，使用默认设置就可以直接使用注视点手势交互系统。只需要在场景中添加常见的交互组件
+如 XRGrabInteractable ， Button， Slider 这些支持交互的组件， Unity 的交互体系会自动将注视点手势交互系统和交互组件对接起来。</p>
+<p>如果您有丰富的手势开发经验，那么您可以尝试自定义手势，修改映射关系，实现您需要的功能。</p>
+<p>具体您可以参考如下脚本代码</p>
+<img alt="../_images/gesturecode.png" src="../_images/gesturecode.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter_4_3_2_Gesture_Interaction_Instruction.html" class="btn btn-neutral float-left" title="手势交互操作说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter_5.html" class="btn btn-neutral float-right" title="5.API文档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多用户协同网络工具库 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="如何使用Tag跟踪" href="chapter_7_3_BeaconandTagDemo.html" />
+    <link rel="prev" title="7.扩展模块" href="../chapter_7.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">多用户协同网络工具库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2 优势以及限制:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3 类结构介绍:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tinet">4 核心类Tinet介绍：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syncidentity">5 SyncIdentity类和网络对象的权限管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6 自定义网络消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">7 发送数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">8 接收数据</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_7_3_BeaconandTagDemo.html">如何使用Tag跟踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_7_5_%E7%A7%BB%E5%8A%A8VR%20Demo%E7%A7%BB%E6%A4%8D%E5%88%B0Unity%20XR%20SDK.html">VR一体机应用移植到RhinoX Pro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_7.html">7.扩展模块</a> &raquo;</li>
+      <li>多用户协同网络工具库</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Extended_Module/chapter_7_1_1多人协同模块.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1>多用户协同网络工具库<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>如果您需要实现多用户协同使用的场景，可以参考此章节。</p>
+<img alt="../_images/TiNet-demo.gif" src="../_images/TiNet-demo.gif" />
+<p>工具库下载请点击： <a class="reference external" href="https://xms-developer.oss-cn-shenzhen.aliyuncs.com/release/unityxrsdk/multiusersdk-unityxr-master.zip">多人协同工具包</a></p>
+<p>如果您是初次接触网络同步开发，您可以在 <a class="reference external" href="https://developer.ximmerse.com/#/example">示例教程</a> 中查看详细文档进行入门学习</p>
+<section id="id5">
+<h2>1 概述<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>多用户协同网络库是专为以下应用场景设计的工具库:</p>
+<ul class="simple">
+<li><p>多个 Rhino X Pro用户在同一个物理房间内协同交互。</p></li>
+<li><p>使用手机的用户在上述物理空间中, 观察/协同上述 Rhino X Pro用户的交互。此功能还需结合 <strong>移动端MR应用定位系统</strong> 功能库。</p></li>
+<li><p>使用电脑的用户, 通过固定摄像头, 在上述空间中和Rhino X Pro用户交互。此功能还需结合 <strong>电脑端MR应用定位系统</strong> 功能库。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>除了多用户协同网络工具库， 还有很多第三方网络工具库可以实现上述功能，例如 Unity 官方推出的 Multiplayer, Photon的Bolt系列, DarkRift Networking 等等。</p>
+<p>大多数网络工具库都是按照经典的 Client - Server 中心化拓扑结构实现。这种结构中都有至少一个中心服务器和若干个客户端组成。 服务器负责调度信息的派发，客户端监听信息并负责渲染和用户呈现。</p>
+<p>多用户协同网络工具库和上述C/S网络结构不同之处在于, 它是基于去中心化的P2P拓扑结构， 多个网络节点之间是相互直连的蛛网式结构。</p>
+</div>
+<img alt="../_images/Network_arch_CS.png" src="../_images/Network_arch_CS.png" />
+<img alt="../_images/Network_arch_P2P.png" src="../_images/Network_arch_P2P.png" />
+</section>
+<section id="id6">
+<h2>2 优势以及限制:<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<p><strong>优势</strong></p>
+<ul class="simple">
+<li><p>轻便, 不需要部署服务器。 终端设备只要接入局域网即可。</p></li>
+<li><p>兼容所有设备， 无论PC，安卓手机，苹果手机 ，RhinoX 头显都可以使用。</p></li>
+<li><p>开发逻辑既能实现P2P结构，也能兼容C/S结构。</p></li>
+</ul>
+<p><strong>限制</strong></p>
+<ul class="simple">
+<li><p>目前只支持局域网。</p></li>
+<li><p>相比于经典C/S结构，对于一些强中心化的需求, 例如AI的同步, 环境物体的状态同步，稍显复杂。</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>3 类结构介绍:<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<p>核心库: XRMultiUserSDK.dll</p>
+<p>多用户协同网络工具库和核心类都封装在此动态链接库中。</p>
+<img alt="../_images/xrmultiusersdk.png" src="../_images/xrmultiusersdk.png" />
+<p><strong>核心类: TiNet</strong></p>
+<img alt="../_images/TiNet.png" src="../_images/TiNet.png" />
+<p><strong>TiNet</strong> 是多用户协同工具库的核心类, 负责网络节点之间的互连, 消息的投递和接收。</p>
+<p>开源网络应用代码包: Ti-Net-Sync</p>
+<p>多用户协同网络工具库和核心类都封装在此动态链接库中。这些开源代码是基于 TiNet 核心类实现的网络应用示例。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ti-Net-Sync 是基于 TiNet 核心库实现的应用示例。 不代表此网络工具库的全部功能， 用户可以基于这些sample code， 按照自己的实际需求做定制化开发。</p>
+</div>
+</section>
+<section id="tinet">
+<h2>4 核心类Tinet介绍：<a class="headerlink" href="#tinet" title="Permalink to this heading"></a></h2>
+<p>Tinet主要负责网络节点之间的互连以及消息收发，在一个场景中有且只能有一个Tinet Script。我们可以通过鼠标右键选择
+需要同步的模型，通过 <strong>TiNet-&gt;Sync Identity</strong> 来一键创建同步需要用到的组件，此时会自动帮助您创建一个 <strong>SyncGameObjectRoot</strong>，
+此物体上会挂载 <strong>Tinet Script</strong>，同步模型的组件在此目录下面。</p>
+<img alt="../_images/Tinet_Create.png" src="../_images/Tinet_Create.png" />
+<img alt="../_images/Sync_Root.png" src="../_images/Sync_Root.png" />
+<p><strong>1.TiNet类的工作流程</strong></p>
+<p>一个典型的Rhino X Pro多用户协同应用的网络结构如下图所示:</p>
+<img alt="../_images/Classic_TiNet_Network_topo.png" src="../_images/Classic_TiNet_Network_topo.png" />
+<p>此结构中，包括有以下节点: Rhino X Pro 用户， 电脑观察端，手机观察端。</p>
+<p>设备之间建立通信的过程如下:</p>
+<ul class="simple">
+<li><p>SDK启动, 获取自身IP地址。</p></li>
+<li><p>SDK在本地监听一个 TCP 端口和一个 UDP 端口。相当于在设备上启动一个本地服务器。</p></li>
+<li><p>自动向本地网关广播身份信息。 广播的身份信息包括设备自身的IP地址, 自身启动的TCP/UDP端口, 自身的Custom Tag(身份标识), Filter Word (过滤关键字)。 广播信息每一秒发送一次。</p></li>
+<li><p>其他设备收听到广播的身份信息后, 跟踪 Filter Word 决定是否需要建立链接, 如果 Filter Word 条件满足, 则建立连接。 连接方式包括 TCP 和 UDP 连接。</p></li>
+</ul>
+<p><strong>2.TiNet类字段属性详解</strong></p>
+<img alt="../_images/TiNet.png" src="../_images/TiNet.png" />
+<ul class="simple">
+<li><p><strong>AutoStart</strong> : 是否自动启动TiNet的网络连接功能。如果为false，需要开发者调用 TiNet.Instance.StartNetworking() 方法启动网络。</p></li>
+<li><p><strong>Strictmode</strong>: 此接口调试使用，默认True即可</p></li>
+<li><p><strong>Detach when pause</strong> : 是否在应用切回后台的时候, 切断网络连接。 对于Rhino X Pro或者手机应用， 切回后台的方式是按Home键。 对于电脑端应用， 切回后台的方式是将应用窗口最小化。</p></li>
+<li><p><strong>Custom tag</strong> : 身份标记。 此字段用于提供节点的身份标记。例如，Rhino X Pro用户可以给自身tag设置为 Rhino X Pro User, 手机端 MR 可以给自身tag设置为 MR Mobile。用户通过 I_TiNetNode.CustomTag 获取相连节点的 Tag.</p></li>
+<li><p><strong>Port broadcast</strong> : 广播自动发现身份信息的网络端口。 应用之间必须使用同一个端口才能互相发现，可自定义此端口。</p></li>
+<li><p><strong>Port reliable</strong> : TCP 通讯端口，可自定义此端口。</p></li>
+<li><p><strong>Port unreliable</strong> : UDP 通讯端口，可自定义此端口。</p></li>
+<li><p><strong>Broadcast discovery</strong> : 是否广播身份信息。如果为false，则不会广播身份信息。 此字段适用于一些特殊的场景, 因为局域网广播所需要绑定的IP: <em>0.0.0.0</em> 是一种不可复用的IP资源, 有可能存在同应用内，其他程序也需要绑定此 IP, 所以此字段的目的用于协调这种情况。当Broadcast discovery = false的时候, tinet 不会广播自身的身份信息，也就是不会自动和其他网络节点建立连接, 开发者需要调用 TiNet.Instance.TryConnectsTo() 方法建立连接。</p></li>
+<li><p><strong>Auto joint network</strong> : 是否自动加入网络。如果为false，即使收到了来自远端的身份广播信息, 也不会自动加入网络。</p></li>
+<li><p><strong>Filter Mode</strong> : 过滤模式, 可以使用filter mode + filter word 字段，过滤不属于同一个条件的节点。 例如， 如果 Filter Word = MyApp，则TiNet只会连接到其他的也是同一个关键字的网络节点。</p></li>
+</ul>
+<p>当TiNet启动以后，显示面板会显示出它的已连接节点:</p>
+<img alt="../_images/Tinet-Nodes-List.png" src="../_images/Tinet-Nodes-List.png" />
+<ul class="simple">
+<li><p>NodeName / Node ID : 是对方节点的名字和ID属性。</p></li>
+<li><p>NodeName = SystemInfo.deviceUniqueIdentifier: 是和机器绑定的固定值。</p></li>
+<li><p>Node ID: 是一个随机值,每次启动都会变化。</p></li>
+<li><p>Custom Tag : 对方的tinet面板的Custom Tag。</p></li>
+<li><p>Reliable port / Unreliable port : 对方的通信端口。</p></li>
+<li><p>Node start time: 对方tinet 的启动时间戳。</p></li>
+</ul>
+<p>开发者使用 TiNet.Instance.GetAllNodes(List&lt;I_TiNetNode&gt; Nodes) 获取当前所有连接的节点。</p>
+</section>
+<section id="syncidentity">
+<h2>5 SyncIdentity类和网络对象的权限管理<a class="headerlink" href="#syncidentity" title="Permalink to this heading"></a></h2>
+<p>每个能被同步的网络物体, 都使用 SyncIdentity 类来标记其唯一ID. SyncIdentity 类不一定要附着在同步GameObject，可以和同步GameObject分离。</p>
+<img alt="../_images/Inspector_SyncIdentity.png" src="../_images/Inspector_SyncIdentity.png" />
+<ul class="simple">
+<li><p>Target GameObject : 要同步的目标对象.</p></li>
+<li><p>Network ID : 唯一ID。 场景中所有的 SyncIdentity 的 Network ID 不能重复。</p></li>
+<li><p>ClaimOwner 和 UnclaimOwner 按钮 : 分别触发 SyncIdentity.ClaimOwner() 和 UnclaimOwner() 方法。 关于这两个方法的用途，请见此章后段的详细解释。</p></li>
+<li><p>IsOwned 和 OwnerID 属性 : 标记此网络同步对象当前的拥有者节点ID. 如果此网络对象没有被任何网络节点拥有，则OwnerID = -1.</p></li>
+</ul>
+<p><strong>网络对象的权限</strong></p>
+<p>在经典的C/S网络架构中, 存在一个中心服务器, 所以大部分的网络对象, 都是由中心服务器来统一管理的。</p>
+<p>例如，假设在一个网络游戏中，有三个玩家角色，若干个NPC角色. 我们以玩家和NPC角色的位置更新逻辑距离。</p>
+<ul class="simple">
+<li><p>玩家角色的位置同步</p></li>
+</ul>
+<p>当玩家角色移动的时候，其角色的位置会由玩家所控制器的客户端实时将自身的位置发送给服务器。服务器收到数据后，会校验这个位置是否合理，在排除了作弊，数据包错误等可能后，服务器
+内部更新此玩家角色对象的位置， 然后将位置广播给其他的客户端程序。 而其他客户端程序收到角色位置信息后，自动更新自身程序内的此玩家角色的位置信息。</p>
+<p>所以玩家角色的位置信息更新流程是 : 玩家 -&gt; 服务器 -&gt; 其他玩家.</p>
+<p>可以看出，在经典C/S结构中， 玩家对象的权限属于玩家自身管理。</p>
+<ul class="simple">
+<li><p>NPC角色的位置同步</p></li>
+</ul>
+<p>由于NPC不属于任何玩家所控制，NPC的角色位置由服务器统一控制。 服务器只需要把NPC的位置广播给所有的玩家客户端， 而玩家客户端在收到来自服务器的NPC角色位置信息后，
+自动更新本客户端程序内的NPC角色的位置数据。</p>
+<p>所以NPC角色的位置信息更新流程是 : 服务器 -&gt; 其他玩家</p>
+<p>所以在经典C/S结构中， NPC对象的权限属于中心服务器管理。</p>
+<p><strong>以 TiNet 为核心的网络结构中，网络对象的权限管理</strong></p>
+<p>TiNet 网络是一个去中心化的拓扑结构，无论是属于玩家自身的物体（例如：RhinoX 用户的头部位置，双手控制器的位置），还是”NPC物体”的位置，其权限管理的核心思路都和
+中心化的C/S结构有很大的不同。</p>
+<p><em>SyncIdentity 的 Owner ID</em> : TiNet 使用 SyncIdentity 类标记网络物体的唯一ID和其权限所有者节点的ID. 当用户需要改变某个物体的属性 （包括其位置，朝向，颜色，显隐状态等等）的时候，
+需要先调用 SyncIdentity 的 ClaimOwner() 方法, 此方法会广播一条 ClaimOwnerMessage 消息给所有的网络节点， 占据目标对象的权限。 而其他网络节点收到此消息后， 会自动将此目标对象
+的权限拥有者设置为ClaimOwnerMessage消息中的所标记的网络节点。</p>
+<p>当权限变更以后，SyncIdentity的inspector 界面上显示的Owner ID字段会变化为权限拥有者的ID, 如下图:</p>
+<img alt="../_images/SyncIdentity_OwnerID.png" src="../_images/SyncIdentity_OwnerID.png" />
+<p>当SyncIdentity的权限被某一个节点获取后, 此节点就可以改动此对象的属性了。</p>
+<p>应用示例: SyncGrabable.cs</p>
+<p>SyncGrabable所实现的功能 : 当抓取发生的时候， SyncGrabable 脚本调用Grabable对象上的SyncIdentity 的ClaimOwner()方法,
+当用户松开按键的时候, SyncGrabable 调用Grabable对象上的SyncIdentity 的UnClaimOwner()方法，释放Grabable对象的权限, 其他用户在原用户放下对象之后， 可以再抓取此对象。
+一个时刻内， SyncIdentity的权限只会被一个节点所占据。</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w"> </span><span class="c1">/// Sync grabable:</span>
+<span class="w"> </span><span class="c1">/// - 在 target grabable 被其他的 TiNet node claim owner的时候disable grabable;</span>
+<span class="w"> </span><span class="c1">/// - 在 target grabable 的 权限被解除的时候， enable grabable;</span>
+<span class="w"> </span><span class="c1">/// - 在自己抓取的时候， claim owner</span>
+<span class="w"> </span><span class="c1">/// - 在自己释放的时候， release owner</span>
+<span class="w"> </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w"> </span><span class="na">[RequireComponent(typeof(SyncIdentity))]</span><span class="w"></span>
+<span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SyncGrabable</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="w"></span>
+<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">SyncIdentity</span><span class="w"> </span><span class="n">syncId</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="na">[SerializeField]</span><span class="w"></span>
+<span class="w">     </span><span class="n">XRGrabInteractable</span><span class="w"> </span><span class="n">grabable</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="kt">bool</span><span class="w"> </span><span class="n">isRigidKinatmicBeforeGrabbed</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="c1">// Start is called before the first frame update</span>
+<span class="w">     </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">syncId</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">SyncIdentity</span><span class="p">&gt;();</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">syncId</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">grabable</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="n">grabable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncId</span><span class="p">.</span><span class="n">TargetGameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">XRGrabInteractable</span><span class="p">&gt;();</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">grabable</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">         </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">OnClaimOwnershipByOtherNode</span><span class="w"> </span><span class="p">+=</span><span class="w"> </span><span class="n">SyncIdentity_OnClaimOwnershipByOtherNode</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="c1">/// - 在自己抓取的时候， claim owner</span>
+<span class="w">         </span><span class="c1">/// - 在自己释放的时候， release owner</span>
+<span class="w">         </span><span class="n">grabable</span><span class="p">.</span><span class="n">firstSelectEntered</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">Grabable_OnGrabBegin</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">grabable</span><span class="p">.</span><span class="n">lastSelectExited</span><span class="p">.</span><span class="n">AddListener</span><span class="p">(</span><span class="n">Grabable_OnGrabEnd</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SyncIdentity_OnClaimOwnershipByOtherNode</span><span class="p">(</span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="w"> </span><span class="n">_syncId</span><span class="p">,</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isClaimed</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_syncId</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">syncId</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="c1">//被其他节点抓取:</span>
+<span class="w">             </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isClaimed</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="n">grabable</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">                 </span><span class="k">if</span><span class="p">(</span><span class="n">grabable</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;())</span><span class="w"></span>
+<span class="w">                 </span><span class="p">{</span><span class="w"></span>
+<span class="w">                     </span><span class="kt">var</span><span class="w"> </span><span class="n">rigid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">grabable</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span><span class="w"></span>
+<span class="w">                     </span><span class="n">isRigidKinatmicBeforeGrabbed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rigid</span><span class="p">.</span><span class="n">isKinematic</span><span class="p">;</span><span class="w"></span>
+<span class="w">                     </span><span class="k">if</span><span class="p">(!</span><span class="n">rigid</span><span class="p">.</span><span class="n">isKinematic</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="p">{</span><span class="w"></span>
+<span class="w">                         </span><span class="n">rigid</span><span class="p">.</span><span class="n">isKinematic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                     </span><span class="p">}</span><span class="w"></span>
+<span class="w">                 </span><span class="p">}</span><span class="w"></span>
+<span class="w">             </span><span class="p">}</span><span class="w"></span>
+<span class="w">             </span><span class="c1">//被其他节点释放:</span>
+<span class="w">             </span><span class="k">else</span><span class="w"></span>
+<span class="w">             </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="n">grabable</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                 </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">grabable</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;())</span><span class="w"></span>
+<span class="w">                 </span><span class="p">{</span><span class="w"></span>
+<span class="w">                     </span><span class="kt">var</span><span class="w"> </span><span class="n">rigid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">grabable</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span><span class="w"></span>
+<span class="w">                     </span><span class="k">if</span><span class="p">(!</span><span class="n">isRigidKinatmicBeforeGrabbed</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="p">{</span><span class="w"></span>
+<span class="w">                         </span><span class="n">rigid</span><span class="p">.</span><span class="n">isKinematic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">                     </span><span class="p">}</span><span class="w"></span>
+<span class="w">                 </span><span class="p">}</span><span class="w"></span>
+<span class="w">             </span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnDestroy</span><span class="p">()</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">grabable</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="n">grabable</span><span class="p">.</span><span class="n">firstSelectEntered</span><span class="p">.</span><span class="n">RemoveListener</span><span class="p">(</span><span class="n">Grabable_OnGrabBegin</span><span class="p">);</span><span class="w"></span>
+<span class="w">             </span><span class="n">grabable</span><span class="p">.</span><span class="n">selectExited</span><span class="p">.</span><span class="n">RemoveListener</span><span class="p">(</span><span class="n">Grabable_OnGrabEnd</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">OnClaimOwnershipByOtherNode</span><span class="w"> </span><span class="p">-=</span><span class="w"> </span><span class="n">SyncIdentity_OnClaimOwnershipByOtherNode</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="w">     </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">     </span><span class="c1">/// uncliam owner when the grabble is releasing</span>
+<span class="w">     </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">     </span><span class="c1">/// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;</span>
+<span class="w">     </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Grabable_OnGrabEnd</span><span class="p">(</span><span class="n">SelectExitEventArgs</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">syncId</span><span class="p">.</span><span class="n">UnClaimOwner</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">     </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">     </span><span class="c1">/// claim owner when the grabble is being grabbed</span>
+<span class="w">     </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">     </span><span class="c1">/// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;</span>
+<span class="w">     </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Grabable_OnGrabBegin</span><span class="p">(</span><span class="n">SelectEnterEventArgs</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">syncId</span><span class="p">.</span><span class="n">ClaimOwner</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>总结: 在TiNet的P2P网络中，每个网络对象都需要通过ClaimOwner / UnClaimOwner 方式，实现对某个网络对象的权限获取与释放。只有当网络对象的权限被当前节点所拥有的时候，当前节点才能修改此对象的网络属性。</p>
+</div>
+</section>
+<section id="id8">
+<h2>6 自定义网络消息<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<p>我们提供了一些常用的同步方法，如SyncTransform，SyncController等，如果您需要实现一些特殊的同步操作，可以参考
+该章节自定义网络消息，实现同步。</p>
+<p>在网络中传递数据的方式是通过 TiNetMessage 实现的。 开发者需要把同步数据封装在 TiNetMessage 的实现类上。</p>
+<p>下面以 SyncTransformMessage 为例，说明如何继承实现 TiNetMessage 类。</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">Ximmerse.XR.UnityNetworking</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">TiNetMessgae</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNetMessage</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Ximmerse.XR</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="na">[Message(MessageCode.kSyncTransform)]</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SyncTransformMessage</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNetMessage</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OwnerID</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">NetworkID</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="n">Vector3</span><span class="w"> </span><span class="n">WorldPosition</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="n">Quaternion</span><span class="w"> </span><span class="n">WorldRotation</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="n">Vector3</span><span class="w"> </span><span class="n">Scale</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsFirstMessage</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">           </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">           </span><span class="c1">/// The datetime from TimeTicks</span>
+<span class="w">           </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">time</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="k">get</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">                   </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">TimeTicks</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="p">}</span><span class="w"></span>
+<span class="w">           </span><span class="k">set</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">                   </span><span class="n">TimeTicks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">value</span><span class="p">.</span><span class="n">Ticks</span><span class="p">;</span><span class="w"></span>
+<span class="w">           </span><span class="p">}</span><span class="w"></span>
+<span class="w">           </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">           </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">           </span><span class="c1">/// 从网络读取数据</span>
+<span class="w">           </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnDeserialize</span><span class="p">()</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="n">OwnerID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadInt</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">NetworkID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadInt</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">TimeTicks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadLong</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">WorldPosition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadVector3</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">WorldRotation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadQuaternion</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">Scale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadVector3</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="n">IsFirstMessage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ReadBool</span><span class="p">();</span><span class="w"></span>
+<span class="w">           </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">           </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">           </span><span class="c1">/// 向网络写出数据</span>
+<span class="w">           </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">           </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSerialize</span><span class="p">()</span><span class="w"></span>
+<span class="w">           </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteInt</span><span class="p">(</span><span class="n">OwnerID</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteInt</span><span class="p">(</span><span class="n">NetworkID</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteLong</span><span class="p">(</span><span class="n">TimeTicks</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteVector3</span><span class="p">(</span><span class="n">WorldPosition</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteQuaternion</span><span class="p">(</span><span class="n">WorldRotation</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteVector3</span><span class="p">(</span><span class="n">Scale</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">WriteBool</span><span class="p">(</span><span class="n">IsFirstMessage</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>开发者要实现自定义消息发送网络消息，需要以下操作:</p>
+<p>1.创建一个消息类，继承 TiNetMessage 。</p>
+<p>2.为新的消息类，使用 MessageAttribute, 声明一个 short 类型的消息码。此消息码必须唯一,不能和别的消息类的消息码重复。而且必须大于 0x0010。</p>
+<p>3.在 OnSerialize() 方法中，使用 TiNetMessage 的 Write 方法组，将自身的数据写入到网络中。</p>
+<p>4.在 OnDeserialize() 方法中, 使用 TiNetMessage 的 Read 方法组， 按照序列化的顺序， 将Serialize()中写入的数据读取出来。</p>
+</div>
+<p>TiNetMessage 类提供以下方法，实现不同数据类型的写入和读取操作。</p>
+<p>以下这些方法都是 protected 声明, 开发者可以在自定义的TiNetMessage中调用这些方法以读写网络数据。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>类</p></th>
+<th class="head"><p>方法</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bool</p></td>
+<td><p>ReadBool() / WriteBool()</p></td>
+</tr>
+<tr class="row-odd"><td><p>bool[]</p></td>
+<td><p>ReadBools() / WriteBoolArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>byte</p></td>
+<td><p>ReadByte() / WriteByte()</p></td>
+</tr>
+<tr class="row-odd"><td><p>byte[]</p></td>
+<td><p>ReadBytes() / WriteByteArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>short</p></td>
+<td><p>ReadShort() / WriteShort()</p></td>
+</tr>
+<tr class="row-odd"><td><p>short[]</p></td>
+<td><p>ReadShorts() / WriteShortArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>int</p></td>
+<td><p>ReadInt() / WriteInt()</p></td>
+</tr>
+<tr class="row-odd"><td><p>int[]</p></td>
+<td><p>ReadInts() / WriteIntArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>long</p></td>
+<td><p>ReadLong() / WriteLong()</p></td>
+</tr>
+<tr class="row-odd"><td><p>long[]</p></td>
+<td><p>ReadLongs() / WriteLongArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>ReadFloat() / WriteFloat()</p></td>
+</tr>
+<tr class="row-odd"><td><p>float[]</p></td>
+<td><p>ReadFloats() / WriteFloatArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>string</p></td>
+<td><p>ReadString() / WriteString()</p></td>
+</tr>
+<tr class="row-odd"><td><p>strings</p></td>
+<td><p>ReadStrings() / WriteStringArray()</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector2</p></td>
+<td><p>ReadVector2() / WriteVector2()</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vector2[]</p></td>
+<td><p>ReadVector2s() / WriteVector2Array()</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector3</p></td>
+<td><p>ReadVector3() / WriteVector3()</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vector3[]</p></td>
+<td><p>ReadVector3s() / WriteVector3Array()</p></td>
+</tr>
+<tr class="row-even"><td><p>Quaternion</p></td>
+<td><p>ReadQuaternion() / WriteQuaternion()</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quaternion[]</p></td>
+<td><p>ReadQuaternions() / WriteQuaternionArray()</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h2>7 发送数据<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
+<p>在上一章节中，我们实现了一个 SyncTransformMessage, 此消息类的功能是将一个Transform的位置和姿态信息发送给其他的网络节点。</p>
+<p>以下代码示例如何发送消息:</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// 以下代码示范如何发送网络消息。</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;param name=&quot;node&quot;&gt;&lt;/param&gt;</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SendSyncMessage</span><span class="p">(</span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SyncTransformMessage</span><span class="w"> </span><span class="n">syncTransMessage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TiNetUtility</span><span class="p">.</span><span class="n">GetMessage</span><span class="p">&lt;</span><span class="n">SyncTransformMessage</span><span class="p">&gt;();</span><span class="w"> </span><span class="c1">//从缓存池中获取一个 SyncTransformMessage 消息对象。</span>
+<span class="w">    </span><span class="c1">//给消息体赋值:</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">NetworkID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">NetworkID</span><span class="p">;</span><span class="w"> </span><span class="c1">//网络唯一id</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">OwnerID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TiNetManager</span><span class="p">.</span><span class="n">NodeID</span><span class="p">;</span><span class="c1">//改变此transform的拥有者的网络节点id</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">TimeTicks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">Ticks</span><span class="p">;</span><span class="c1">//时间戳</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">WorldPosition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span><span class="c1">//位置</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">WorldRotation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span><span class="c1">//朝向</span>
+<span class="w">    </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">Scale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">localScale</span><span class="p">;</span><span class="c1">//缩放</span>
+<span class="w">    </span><span class="c1">//如果node为null，则以udp通道发送给全部的节点</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">SendToAllUnreliable</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//以tcp通道发送给指定节点</span>
+<span class="w">        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">SendToReliable</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>两种通道 : Reliable 和 Unreliable</strong></p>
+<p>TiNet支持ReliableMessage和UnreliableMessage. ReliableMessage通过 TCP/IP协议发送 ， UnreliableMessage通过 UDP协议发送。</p>
+<p>两种通道相比, TCP 通道适合发送确定性的，不能被丢失的，低频的消息。 例如: 网络物体的权限的获取/释放。</p>
+<p>UDP通道适合发送高频的，可以偶尔丢失的消息， 例如: RhinoX用户头部的实时位置和朝向， 这些数据偶尔丢失一帧并没有很大的影响。</p>
+<p><strong>Unreliable 方法:</strong></p>
+<p>TiNetMessage.SendToAllUnreliable(); //此方法发送给所有的和当前TiNetNode互相连通的节点。使用的是UDP协议，存在丢包的可能。</p>
+<p>TiNetMessage.SendToUnreliable(I_TiNetNode Node); //此方法发送给指定的 TiNetNode节点。使用的是UDP协议，存在丢包的可能。</p>
+<p><strong>Reliable方法:</strong></p>
+<p>TiNetMessage.SendToAllReliable(); //此方法发送给所有的和当前TiNetNode互相连通的节点。使用TCP/IP协议，保证传输可靠性。</p>
+<p>TiNetMessage.SendToReliable(I_TiNetNode Node); //此方法发送给指定的 TiNetNode节点。使用TCP/IP协议，保证传输可靠性。</p>
+<p><em>获取所有的连接节点的方法:</em></p>
+<p>TiNet.Instance.GetAllNodes();</p>
+</section>
+<section id="id10">
+<h2>8 接收数据<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<p>以位置同步消息的实现模式为例, 如下代码可以监听 SyncTransformMessage 消息:</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="c1">// &lt;summary&gt;</span>
+<span class="c1">// Sync transform</span>
+<span class="c1">// &lt;/summary&gt;</span>
+<span class="n">RequireComponent</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">SyncIdentity</span><span class="p">))]</span><span class="w"></span>
+<span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SyncTransform</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="p">,</span><span class="w"> </span><span class="n">TiNetMessageHandler</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Message callback : on transform message received.</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="na">[TiNetMessageCallback(MessageCode.kSyncTransform)]</span><span class="w"></span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSyncTransformMessage</span><span class="p">(</span><span class="n">TiNetMessage</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">SyncTransformMessage</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SyncTransformMessage</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">networkID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">NetworkID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="c1">//Debug.LogFormat(&quot;On sync transform message : {0}&quot;, networkID);</span>
+<span class="w">                </span><span class="c1">//同步 sync transform 信息:</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">networkID</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">SyncIdentity</span><span class="w"> </span><span class="n">entity</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">IsOwned</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">HasComponent</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="n">SyncTransform</span><span class="w"> </span><span class="n">syncT</span><span class="p">))</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="kt">long</span><span class="w"> </span><span class="n">syncTime</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="c1">//只取时间戳最新的更新:</span>
+<span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">HasValue</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="n">syncTime</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_PreviousOwnerID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">OwnerID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                                </span><span class="n">Transform</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">TargetGameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="n">t</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">WorldPosition</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="n">t</span><span class="p">.</span><span class="n">rotation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">WorldRotation</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="n">t</span><span class="p">.</span><span class="n">localScale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">Scale</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                                </span><span class="n">syncT</span><span class="p">.</span><span class="n">OnSyncTransformChanged</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>开发者要监听自定义消息，需要以下操作:</p>
+<p>1.创建一个自定义Monobehaviour 实现 TiNetMessageHandler 接口.</p>
+<p>2.声明一个静态方法，加上 TiNetMessageCallback 属性签名, 并将自定义消息的消息码（也就是示例代码中的 MessageCode.kSyncTransform）
+交给TiNetMessageCallback属性的构造参数。并且静态方法的签名必须是 void FunctionName(TiNetMessage message, I_TiNetNode node) . message 就是收到的消息, node 是发送此消息的节点。</p>
+<p>3.在静态方法中, 将message参数转换为要处理的自定义消息类即可读取它的数据了。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TiNet系统使用C#反射机制将消息类和对应的静态处理方法做映射关联, 如果在打包apk的时候，打开了 Code Stripping 开关, 会导致被声明为 private static 的静态处理方法在打包过程被Unity引擎从最终生成的二进制库中移除。</p>
+<p>解决办法是 : 关闭 Code Stripping 开关，或者使用 link.xml 将 PolyEnginePlugins.dll 和上层代码声明为 preserved.</p>
+<p>关于 link.xml 文件的用法，见 Unity 官网文档:  <a class="reference external" href="https://docs.unity3d.com/Manual/ManagedCodeStripping.html">https://docs.unity3d.com/Manual/ManagedCodeStripping.html</a></p>
+</div>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;linker&gt;</span>
+    <span class="nt">&lt;assembly</span> <span class="na">fullname=</span><span class="s">&quot;TiNetSync&quot;</span> <span class="na">preserve=</span><span class="s">&quot;all&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;assembly</span> <span class="na">fullname=</span><span class="s">&quot;PolyEnginePlugins&quot;</span> <span class="na">preserve=</span><span class="s">&quot;all&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/linker&gt;</span>
+</pre></div>
+</div>
+<p>用于同步网络对象的transform 的 SyncTransform.cs 完整代码:</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Ximmerse.XR.UnityNetworking</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">I_TiNetNode</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">I_TiNetNode</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TiNet</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNet</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TiNetMessageCallback</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNetMessageCallbackAttribute</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TiNetMessage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNetMessage</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="nn">TiNetUtility</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">TiNetUtility</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Ximmerse.XR</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">        </span><span class="c1">/// Sync transform</span>
+<span class="w">        </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">        </span><span class="na">[RequireComponent(typeof(SyncIdentity))]</span><span class="w"></span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SyncTransform</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TiNetMonoBehaviour</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// 最近一次更新 transform 的时间戳。</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="kt">long?</span><span class="w"> </span><span class="n">m_SyncTimeStamp</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// Sync interval.</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="na">[MinValue (0.01f)]</span><span class="w"></span>
+<span class="w">                </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">SyncInterval</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0.05f</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                </span><span class="kt">float</span><span class="w"> </span><span class="n">m_LastSyncTime</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// 对上一次更新的 Owner ID。</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m_PreviousOwnerID</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// 对上一次更新的 Owner ID。</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="na">[InspectFunction]</span><span class="w"></span>
+<span class="w">                </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PreviousOwnerID</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">get</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="k">return</span><span class="w"> </span><span class="n">m_PreviousOwnerID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// 用于标注更新数据的时间戳</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="na">[InspectFunction]</span><span class="w"></span>
+<span class="w">                </span><span class="k">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">SyncTimeStamp</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">get</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="k">return</span><span class="w"> </span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">HasValue</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">Transform</span><span class="w"> </span><span class="n">syncTransform</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">get</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">TargetGameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// Event : on sync transform is changed.</span>
+<span class="w">                </span><span class="c1">/// Parameter : the changed gameobject&#39;s.</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">Action</span><span class="p">&lt;</span><span class="n">GameObject</span><span class="p">&gt;</span><span class="w"> </span><span class="n">OnSyncTransformChanged</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TiNet_OnNodeConnected</span><span class="p">(</span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="n">SendSyncMessage</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">                                </span><span class="c1">//Debug.LogFormat(gameObject, &quot;{0} send sync transform message on node connected&quot;, name);</span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// Sends sync transform message to speicific node , or to all nodes.</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="c1">/// &lt;param name=&quot;node&quot;&gt;&lt;/param&gt;</span>
+<span class="w">                </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SendSyncMessage</span><span class="p">(</span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">UnityNetworking</span><span class="p">.</span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="n">SyncTransformMessage</span><span class="w"> </span><span class="n">syncTransMessage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TiNetUtility</span><span class="p">.</span><span class="n">GetMessage</span><span class="p">&lt;</span><span class="n">SyncTransformMessage</span><span class="p">&gt;();</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">NetworkID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">NetworkID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">OwnerID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TiNetManager</span><span class="p">.</span><span class="n">NodeID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">TimeTicks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">Ticks</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">WorldPosition</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">WorldRotation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">Scale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">localScale</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">SendToAllUnreliable</span><span class="p">();</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="k">else</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">SendToReliable</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">this</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMessage</span><span class="p">.</span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TiNet_OnNodeDisconnected</span><span class="p">(</span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FixedUpdate</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="c1">//如果 SyncIdentity 处于 Owned 状态:</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">IsOwned</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="c1">//Debug.LogFormat(&quot;Transform has change: {0}, time-interval: {1}&quot;, syncTransform.hasChanged, (Time.realtimeSinceStartup - m_LastSyncTime));</span>
+<span class="w">                                </span><span class="k">if</span><span class="p">(</span><span class="n">TransformDirty</span><span class="p">()</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">Time</span><span class="p">.</span><span class="n">realtimeSinceStartup</span><span class="w"> </span><span class="p">-</span><span class="w"> </span><span class="n">m_LastSyncTime</span><span class="p">)</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="n">SyncInterval</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">SendSyncMessage</span><span class="p">(</span><span class="k">null</span><span class="p">);</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">m_LastSyncTime</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Time</span><span class="p">.</span><span class="n">realtimeSinceStartup</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">                </span><span class="c1">/// Message callback : on transform message received.</span>
+<span class="w">                </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">                </span><span class="na">[TiNetMessageCallbackAttribute(MessageCode.kSyncTransform)]</span><span class="w"></span>
+<span class="w">                </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSyncTransformMessage</span><span class="p">(</span><span class="n">TiNetMessage</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">I_TiNetNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="n">SyncTransformMessage</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SyncTransformMessage</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">networkID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">NetworkID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="c1">//Debug.LogFormat(&quot;On sync transform message : {0}&quot;, networkID);</span>
+<span class="w">                        </span><span class="c1">//同步 sync transform 信息:</span>
+<span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">Ximmerse</span><span class="p">.</span><span class="n">XR</span><span class="p">.</span><span class="n">SyncIdentity</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">networkID</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">SyncIdentity</span><span class="w"> </span><span class="n">entity</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">IsOwned</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">HasComponent</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="n">SyncTransform</span><span class="w"> </span><span class="n">syncT</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="kt">long</span><span class="w"> </span><span class="n">syncTime</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="c1">//只取时间戳最新的更新:</span>
+<span class="w">                                </span><span class="k">if</span><span class="p">(</span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">HasValue</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="n">syncTime</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_PreviousOwnerID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">OwnerID</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">syncT</span><span class="p">.</span><span class="n">m_SyncTimeStamp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">TimeTicks</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                                        </span><span class="n">Transform</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">entity</span><span class="p">.</span><span class="n">TargetGameObject</span><span class="p">.</span><span class="n">transform</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">t</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">WorldPosition</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">t</span><span class="p">.</span><span class="n">rotation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">WorldRotation</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">t</span><span class="p">.</span><span class="n">localScale</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransMsg</span><span class="p">.</span><span class="n">Scale</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                                        </span><span class="n">syncT</span><span class="p">.</span><span class="n">OnSyncTransformChanged</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TransformDirty</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">isMobilePlatform</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="c1">//Android always return transform changed == FALSE</span>
+<span class="w">                                </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="k">else</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="kt">bool</span><span class="w"> </span><span class="n">dirty</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">hasChanged</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="c1">//Check transform dirty:</span>
+<span class="w">                                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dirty</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">syncTransform</span><span class="p">.</span><span class="n">hasChanged</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="k">return</span><span class="w"> </span><span class="n">dirty</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chapter_7.html" class="btn btn-neutral float-left" title="7.扩展模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_7_3_BeaconandTagDemo.html" class="btn btn-neutral float-right" title="如何使用Tag跟踪" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

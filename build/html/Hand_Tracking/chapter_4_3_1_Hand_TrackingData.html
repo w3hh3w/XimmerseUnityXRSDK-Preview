@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手部跟踪数据 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="手势交互操作说明" href="chapter_4_3_2_Gesture_Interaction_Instruction.html" />
+    <link rel="prev" title="Ground Fusion Event" href="../Tag_Tracking/chapter_4_2_6_GroundFusionEvent.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id2">4.1 手柄&amp;头显输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#tag">4.2 Tag跟踪</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../chapter_4.html#id3">4.3 手部跟踪</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">手部跟踪数据</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1. 手势</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2. 手部关节数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">3. 手指弯曲度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">4. 常用 API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_2_Gesture_Interaction_Instruction.html">手势交互操作说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_3_3_Development_Instruction.html">开发指引</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_4.html">4.SDK功能介绍</a> &raquo;</li>
+      <li>手部跟踪数据</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Hand_Tracking/chapter_4_3_1_Hand_TrackingData.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hand-tracking-data">
+<span id="id1"></span><h1>手部跟踪数据<a class="headerlink" href="#hand-tracking-data" title="Permalink to this heading"></a></h1>
+<p>手部跟踪数据主要包括： <strong>手势</strong> （常用标准手势）， <strong>手部关节数据</strong> ， <strong>状态信息</strong> 等。
+您可以根据项目需求，选择合适的数据使用，具体的调用方法，您可以参看API文档。</p>
+<section id="id2">
+<h2>1. 手势<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>目前我们提供三种标准手势，如果此手势可以满足您的项目需求，您可以直接使用，后续我们会提供更丰富的标准手势交互方式。</p>
+<section id="id3">
+<h3>准备手势<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<img alt="../_images/Hand.png" src="../_images/Hand.png" />
+</section>
+<section id="id4">
+<h3>确认手势<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<img alt="../_images/Hand2.png" src="../_images/Hand2.png" />
+<img alt="../_images/Hand3.png" src="../_images/Hand3.png" />
+</section>
+</section>
+<section id="id5">
+<h2>2. 手部关节数据<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>RhinoX Pro可以通过世界坐标跟踪手部，并注释了二十个（十九个指节点和一个掌节点）关键节点的位置，下面是各关节点对应的
+API名称。</p>
+<p>开发者可以根据关节数据自定义手势，从而实现更灵活的交互</p>
+<section id="id6">
+<h3>手部关节点<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<style>
+table th:first-of-type {
+    width: 200px;
+}
+table th:nth-of-type(2) {
+    width: 500px;
+}
+</style><table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>API Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Palm</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>ThumbProximal</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>ThumbDistal</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>ThumbTip</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>IndexProximal</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>IndexMiddle</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>IndexDistal</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>IndexTip</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>MiddleProximal</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>MiddleMiddle</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>MiddleDistal</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>MiddleTip</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>RingProximal</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>RingMiddle</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>RingDistal</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>RingTip</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>PinkyProximal</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>PinkyMiddle</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>PinkyDistal</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>PinkyTip</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>手部关节预制体<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<img alt="../_images/4_3_1image3.png" src="../_images/4_3_1image3.png" />
+<p>创建方式：Hierarchy面板鼠标右键 Ximmerse XR -&gt; Virtual Hand Model。</p>
+<img alt="../_images/4_3_1image4.png" src="../_images/4_3_1image4.png" />
+<p>路径: Packages/com.ximmerse.xr/Resources/Gesture/Virtual Hand Model.prefab</p>
+<p>使用此预制体，开发者可以在内容中渲染被跟踪手部的虚拟手对象。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>该预制体仅作为手部模型显示使用，并不会对交互功能产生影响。</p>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2>3. 手指弯曲度<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//使用Finger.bendness 可以获取手指的弯曲度，使用弯曲度可以判断一些静态手势，例如下面的例子使用bendness判断静态手势:
+if (handTrackingInfo.IsValid == false)
+{
+
+    float bendnessThumb = handTrackingInfo.ThumbFinger.bendness; //bendess 字段代表手指的伸直程度，当bendness=0代表手指完全伸直，当bendess=1代表手指弯曲
+    float bendnessIndex = handTrackingInfo.IndexFinger.bendness; //食指的弯曲度
+    float bendnessMiddle = handTrackingInfo.MiddleFinger.bendness; //中指的弯曲度
+    float bendessRingFinger = handTrackingInfo.RingFinger.bendness; //无名指的弯曲度
+    float bendessLittleFinger = handTrackingInfo.RingFinger.bendness; //小指的弯曲度
+    //当食指和中指的弯曲度小于0.15，其他手指的弯曲度大于0.85的时候，判定用户静态手势
+    if(bendnessIndex &lt;= 0.15f &amp;&amp; bendnessMiddle &lt;= 0.15f &amp;&amp; bendnessThumb &gt;= 0.85f &amp;&amp; bendessRingFinger &gt;= 0.85f &amp;&amp; bendessLittleFinger &gt;= 0.85f)
+    {
+       Debug.LogFormat(&quot;用户手势: 数字 2&quot;);
+    }
+}
+</pre></div>
+</div>
+</section>
+<section id="api">
+<h2>4. 常用 API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//Ximmerse.XR.InputSystems.HandTracking 类是处理手部跟踪的关键类
+
+HandTracking.EnableHandTracking (); //激活手部跟踪
+
+HandTracking.DisableHandTracking (); //停止手部跟踪
+
+var currentHandTrackInfo = HandTracking.LeftHandTrackingInfo; //LeftHandTrackingInfo 包含当前左手手部跟踪的详细数据：每个指关节的位置，手腕的位置，手掌的朝向。 使用 RightHandTrackInfo即可获取右手的跟踪数据
+
+if(currentHandTrackInfo.IsValid)  //如果当前帧，RGB相机跟踪到手部姿态
+{
+    var palmPos = currentHandTrackInfo.PalmPosition;//手掌位置
+    var palmNormal = currentHandTrackInfo.PalmNormal; //沿着手掌心向上的方向
+    var gestureType = currentHandTrackInfo.NativeGestureType; //2 = Open Hand (手掌心张开), 3 = Close Hand (握拳),  4 = Pinch (食指拇指捏合)
+}
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Tag_Tracking/chapter_4_2_6_GroundFusionEvent.html" class="btn btn-neutral float-left" title="Ground Fusion Event" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_4_3_2_Gesture_Interaction_Instruction.html" class="btn btn-neutral float-right" title="手势交互操作说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.SDK功能介绍 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="手柄按键/振动" href="Controller_HMD_Function/chapter_4_1_1_Controller.html" />
+    <link rel="prev" title="3.入门指南" href="chapter_3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chapter_1.html">1.总体介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4.SDK功能介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.1 手柄&amp;头显输入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Controller_HMD_Function/chapter_4_1_1_Controller.html">手柄按键/振动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Controller_HMD_Function/chapter_4_1_2_HMD.html">头显按键</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tag">4.2 Tag跟踪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_1_TagProfileLoading.html">TagProfileLoading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_2_TagGroundPlane.html">Ground Plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_3_TagTracking.html">Tracking Target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_4_CreateGPByJson%20copy.html">CreatesGroundPlaneByJson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_5_TrackingEvent.html">Tracking Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tag_Tracking/chapter_4_2_6_GroundFusionEvent.html">Ground Fusion Event</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">4.3 手部跟踪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Hand_Tracking/chapter_4_3_1_Hand_TrackingData.html">手部跟踪数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hand_Tracking/chapter_4_3_2_Gesture_Interaction_Instruction.html">手势交互操作说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hand_Tracking/chapter_4_3_3_Development_Instruction.html">开发指引</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>4.SDK功能介绍</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chapter_4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sdk">
+<span id="id1"></span><h1>4.SDK功能介绍<a class="headerlink" href="#sdk" title="Permalink to this heading"></a></h1>
+<p>此章节主要介绍与RhinoX Pro硬件特性相关的一些功能模块，如手柄输入，手势识别，Tag跟踪等。具体Unity XR相关的使用方法
+请查看  <a class="reference external" href="https://docs.unity3d.com/Manual/xr_input.html">Unity官方文档</a> 。</p>
+<section id="id2">
+<h2>4.1 手柄&amp;头显输入<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>除了XR Interatcion Toolkit提供的常规交互功能之外，如果您需要使用手柄或者头显来实现额外的定制化功能，如通过按键
+调出或者隐藏UI，触碰到物体后手柄振动等，您可以参考此章节类容进行开发</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>XR Interatcion Toolkit里面自带的组件已经实现了常规的手柄交互功能，如果您只是需要实现抓握键抓取
+物体，扳机键触发UI等常规交互功能，直接使用自带组件即可，不需要使用此处的功能。</p>
+</div>
+<p>详细信息请查看如下章节</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Controller_HMD_Function/chapter_4_1_1_Controller.html">手柄按键/振动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller_HMD_Function/chapter_4_1_2_HMD.html">头显按键</a></li>
+</ul>
+</div>
+</section>
+<section id="tag">
+<h2>4.2 Tag跟踪<a class="headerlink" href="#tag" title="Permalink to this heading"></a></h2>
+<p>Tag跟踪是我们自研的一种定位技术，主要用于虚拟场景与现实场景的空间锚定，以及实现对特殊工具的物体跟踪。</p>
+<p>详细信息请查看如下章节：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_1_TagProfileLoading.html">TagProfileLoading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_2_TagGroundPlane.html">Ground Plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_3_TagTracking.html">Tracking Target</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_4_CreateGPByJson%20copy.html">CreatesGroundPlaneByJson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_5_TrackingEvent.html">Tracking Event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tag_Tracking/chapter_4_2_6_GroundFusionEvent.html">Ground Fusion Event</a></li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h2>4.3 手部跟踪<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>手部跟踪是燧光最新推出的一种交互方式，该功能会跟踪并识别手部姿势，并会根据特定姿势触发交互功能。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此功能处于测试阶段，后续将会对其功能进行优化，目前仅支持RhinoX Pro设备。</p>
+</div>
+<p>详细信息请查看如下章节：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Hand_Tracking/chapter_4_3_1_Hand_TrackingData.html">手部跟踪数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hand_Tracking/chapter_4_3_2_Gesture_Interaction_Instruction.html">手势交互操作说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hand_Tracking/chapter_4_3_3_Development_Instruction.html">开发指引</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter_3.html" class="btn btn-neutral float-left" title="3.入门指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Controller_HMD_Function/chapter_4_1_1_Controller.html" class="btn btn-neutral float-right" title="手柄按键/振动" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
