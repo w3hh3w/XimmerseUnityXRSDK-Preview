@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.RhinoX SDK 迁移到Unity XR SDK &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapter_1.html">1.总体介绍Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_4.html">4.SDK功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>5.RhinoX SDK 迁移到Unity XR SDK</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chapter_7_4_RhinoXLegacySdkMigration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rhinox-sdk-unity-xr-sdk">
+<span id="id1"></span><h1>5.RhinoX SDK 迁移到Unity XR SDK<a class="headerlink" href="#rhinox-sdk-unity-xr-sdk" title="Permalink to this heading"></a></h1>
+<p class="linemarker linemarker-7">如果你已有一个使用 RhinoX Unity SDK v1.x 系列的项目， 并且希望在不引入新的交互范式(如ActionBase, DeviceBase等交互库)的情况下，将此项目快速迁移到 RhinoX Unity XR SDK上, 可以按照此文档介绍的操作步骤.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-9">需要确保Unity项目的版本是 2019.4+ ，推荐2020.3.</p></li>
+<li><p class="linemarker linemarker-11">需要提前下载RhinoX Unity SDK v1.6.0 版本, 只有此版本能对接 RhinoX Unity XR SDK.</p></li>
+</ul>
+<section id="v1-6-0-dll">
+<h2>4.1 替换 v1.6.0 专用DLL<a class="headerlink" href="#v1-6-0-dll" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-16">将 RhinoX Unity SDK v1.6.0 中的 RhinoX-Unity.dll和 RhinoX-Unity-Editor.dll 这两个DLL文件覆盖项目
+Plugins/RhinoX文件夹中的同名DLL文件.</p>
+<p class="linemarker linemarker-19">完成操作后, SDK 的 Welcome window 会显示 version code 为 1.6.0</p>
+<img alt="_images/welcome_window_v1_6_0.png" src="_images/welcome_window_v1_6_0.png" />
+</section>
+<section id="rhinox-unity-xr-sdk">
+<h2>4.2 导入 RhinoX Unity XR SDK<a class="headerlink" href="#rhinox-unity-xr-sdk" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-28">在 Package Manager 中, 导入 RhinoX Unity XR SDK 开发包, 或者直接编辑 manifest.json 加入对应的引用路径。</p>
+</div>
+</section>
+<section id="id2">
+<h2>4.3 删除或者禁用旧的安卓库文件<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-33">在 Assets/Plugins/Android/lib中, 删除或者禁用旧 sdk 中的 xdevice-api.aar 和 其他的Androids 路径下的*.aar库文件.</p>
+<blockquote>
+<div><img alt="_images/legacy_sdk_libraries.png" src="_images/legacy_sdk_libraries.png" />
+</div></blockquote>
+<p class="linemarker linemarker-37">上图中这些库文件需要删除或者在unity中设置为不加载。</p>
+</section>
+<section id="sdk">
+<h2>4.4 添加新旧SDK桥接组件, 并设置项目配置<a class="headerlink" href="#sdk" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-43"><strong>打开Unity场景，在 RxEventSystem 对象上， 添加 Legacy Input Provider</strong></p>
+<img alt="_images/legacy_sdk_RxEventSystem.png" src="_images/legacy_sdk_RxEventSystem.png" />
+<p class="linemarker linemarker-48"><strong>在 PlayerHand 对象上，添加 LegacyTrackReferenceProvider</strong></p>
+<img alt="_images/legacy_sdk_PlayerHand.png" src="_images/legacy_sdk_PlayerHand.png" />
+<p class="linemarker linemarker-54"><strong>在 ARCamera上, 添加 LegacyHeadPoseProvider 和 TrackedPoseDriver,并将各个字段设置为如下图所示的值</strong></p>
+<img alt="_images/legacy_sdk_ARCamera.png" src="_images/legacy_sdk_ARCamera.png" />
+<p class="linemarker linemarker-60"><strong>把 Quality 的 Vsync Count设置为 Don’tSync,  Anti Aliasing 设置为 Disabled</strong></p>
+<img alt="_images/legacy_sdk_QualitySettings.png" src="_images/legacy_sdk_QualitySettings.png" />
+<p class="linemarker linemarker-66"><strong>在 PlayerSetting中, 把 multi-thread rendering 和 graphics job关闭</strong></p>
+<img alt="_images/legacy_sdk_player_settings.png" src="_images/legacy_sdk_player_settings.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracking Target &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CreatesGroundPlaneByJson" href="chapter_4_2_4_CreateGPByJson%20copy.html" />
+    <link rel="prev" title="Ground Plane" href="chapter_4_2_2_TagGroundPlane.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id2">4.1 手柄&amp;头显输入</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../chapter_4.html#tag">4.2 Tag跟踪</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_2_1_TagProfileLoading.html">TagProfileLoading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_2_2_TagGroundPlane.html">Ground Plane</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tracking Target</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_2_4_CreateGPByJson%20copy.html">CreatesGroundPlaneByJson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_2_5_TrackingEvent.html">Tracking Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_2_6_GroundFusionEvent.html">Ground Fusion Event</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id3">4.3 手部跟踪</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_4.html">4.SDK功能介绍</a> &raquo;</li>
+      <li>Tracking Target</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Tag_Tracking/chapter_4_2_3_TagTracking.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tracking-target">
+<span id="tag-tracking"></span><h1>Tracking Target<a class="headerlink" href="#tracking-target" title="Permalink to this heading"></a></h1>
+<section id="id1">
+<h2>描述<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-9">Tracking Target对应的是Tag Tracking组件</p>
+<img alt="../_images/tagtrackingconfig.png" src="../_images/tagtrackingconfig.png" />
+<p class="linemarker linemarker-13">TagTracking的主要作用是，借助燧光特有的定位信标实现物体追踪的功能,只需要将对应的定位信标固定在需要识别的物体上即可。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-16">属性</p></th>
+<th class="head"><p class="linemarker linemarker-16">描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-18">Track ID</p></td>
+<td><p class="linemarker linemarker-18">设置定位信标的ID值</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-19">Tracking Is Lost</p></td>
+<td><p class="linemarker linemarker-19">设置定位信标丢失跟踪后的行为，Stay为留在原地，Follow Head为跟随头部移动</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-20">Debug View</p></td>
+<td><p class="linemarker linemarker-20">是否开启Debug模式，勾选则会在跟踪到的定位信标上渲染出一个坐标轴</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-21">Size</p></td>
+<td><p class="linemarker linemarker-21">设置Debug View中渲染出来的坐标轴的尺寸</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h2>使用方法<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-27">先确认你手上拿到的Tag的ID编号，通常在Tag的背面有写明，如果不清楚请咨询销售人员</p></li>
+</ol>
+<img alt="../_images/tagid.jpg" src="../_images/tagid.jpg" />
+<ol class="arabic simple" start="2">
+<li><p class="linemarker linemarker-31">在Tag Profile Loading组件上勾选支持步骤1中ID编号的标定文件，使用方法请查看 <a class="reference internal" href="chapter_4_2_1_TagProfileLoading.html#tag-profile-loading"><span class="std std-ref">4.2.1 Tag Profile Loading</span></a></p></li>
+</ol>
+<img alt="../_images/tagidconfig.png" src="../_images/tagidconfig.png" />
+<ol class="arabic simple" start="3">
+<li><p class="linemarker linemarker-36">在Hierarchy页面点击鼠标右键，选择Ximmerse X-&gt;Tracking Target</p></li>
+</ol>
+<img alt="../_images/trackingtargetcreate.png" src="../_images/trackingtargetcreate.png" />
+<img alt="../_images/tagidset.png" src="../_images/tagidset.png" />
+<ol class="arabic simple" start="4">
+<li><p class="linemarker linemarker-42">将需要跟踪的模型作为TagTracking对象的子物体，如在此对象下面创建一个Cube模型</p></li>
+</ol>
+<img alt="../_images/trackingtargetuse.png" src="../_images/trackingtargetuse.png" />
+<p class="linemarker linemarker-46">按照上述步骤创建完成，即可实现跟踪到定位信标后，实时显示一个Cube，如果您需要更复杂的使用方式，可以自行编写脚本实现。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter_4_2_2_TagGroundPlane.html" class="btn btn-neutral float-left" title="Ground Plane" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_4_2_4_CreateGPByJson%20copy.html" class="btn btn-neutral float-right" title="CreatesGroundPlaneByJson" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

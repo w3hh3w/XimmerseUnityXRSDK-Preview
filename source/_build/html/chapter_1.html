@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.总体介绍 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.设备及配件简介" href="chapter_2.html" />
+    <link rel="prev" title="RhinoX Unity XR SDK使用说明" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1.总体介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">阅读指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sdk">SDK架构</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_2.html">2.设备及配件简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_4.html">4.SDK功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>1.总体介绍</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chapter_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1>1.总体介绍<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<section id="id3">
+<h2>阅读指南<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-9">此文档主要介绍如何使用RhinoX Unity XR SDK(以下简称SDK)开发AR应用，其中：</p>
+<p class="linemarker linemarker-11">第1章，介绍SDK总体框架及相关概念</p>
+<p class="linemarker linemarker-13">第2章，介绍SDK支持的硬件设备</p>
+<p class="linemarker linemarker-15">第3章，提供SDK1的入门指南</p>
+<p class="linemarker linemarker-17">第4章，介绍SDK的主要功能以及基本用法</p>
+<p class="linemarker linemarker-19">第5章，提供详细的API使用说明</p>
+<p class="linemarker linemarker-21">第6章，介绍开发工具的使用方法</p>
+<p class="linemarker linemarker-23">第7章，介绍MR开发需要用到的扩展功能</p>
+<p class="linemarker linemarker-25">第8章，提供一些常见问题解答</p>
+</section>
+<section id="sdk">
+<h2>SDK架构<a class="headerlink" href="#sdk" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-31">RhinoX Unity XR SDK是专门为Unity开发者推出的新SDK包(以下简称SDK)，新增如下特性：</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-33">基于UnityXR Plug-in标准接口框架</p></li>
+<li><p class="linemarker linemarker-34">支持新一代6-Dof环形手柄控制器</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-37">因为此SDK是基于Unity XR标准，如果您之前没有接触过Unity XR相关开发，请您务必先阅读 <a class="reference external" href="https://docs.unity3d.com/cn/current/Manual/XR.html">Unity XR官方文档</a> 进行学习</p>
+</div>
+<img alt="_images/1.1_unityxr_arch.png" src="_images/1.1_unityxr_arch.png" />
+<p class="linemarker linemarker-44"><strong>Unity XR SDK</strong>: Unity开发的一个新插件框架UnityXR Plug-in Framework，使用该框架的程序可以充分利用Unity引擎的功能</p>
+<p class="linemarker linemarker-46"><strong>RhinoX Unity XR SDK</strong>: 燧光为Unity XR SDK的一个插件，通过UnityXR Plug-in Provider接口接入Unity XR SDK</p>
+<p class="linemarker linemarker-48"><strong>Tag Tracking System</strong>：是基于燧光自研的X-Tag跟踪技术集成的一个定位信标识别系统，通过此系统可以实现物体跟踪以及空间锚定等功能。</p>
+<p class="linemarker linemarker-50"><strong>Tag Profile Loading</strong>: 用于加载不同定位信标追踪文件的组件</p>
+<p class="linemarker linemarker-52"><strong>Tag Tracking</strong>：用于实现物体跟踪的组件</p>
+<p class="linemarker linemarker-54"><strong>Tag Ground Plane</strong>：用于实现空间锚定的组件</p>
+<p class="linemarker linemarker-56">其他关于Unity XR的详细介绍请参考以下链接：</p>
+<p class="linemarker linemarker-58"><a class="reference external" href="https://docs.unity3d.com/Manual/XR.html">Unity XR</a> ： Unity XR总体介绍</p>
+<p class="linemarker linemarker-60"><a class="reference external" href="https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit&#64;2.1/manual/index.html">Unity XR interaction</a> ：Unity XR交互组件</p>
+<p class="linemarker linemarker-62"><a class="reference external" href="https://docs.unity3d.com/Manual/xrsdk-display.html">XRDisplaySubsystem</a> ：XR显示子系统</p>
+<p class="linemarker linemarker-64"><a class="reference external" href="https://docs.unity3d.com/Manual/xrsdk-input.html">XRInputSubsystem</a> ：XR输入子系统</p>
+<p class="linemarker linemarker-66"><a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.XRSettings.html">XRSettings</a> ：XR系统设置</p>
+<p class="linemarker linemarker-68"><a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.XRNodeState.html">XRNodeState</a> ：XR跟踪节点</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="RhinoX Unity XR SDK使用说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_2.html" class="btn btn-neutral float-right" title="2.设备及配件简介" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

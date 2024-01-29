@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手柄按键/振动 &mdash; RhinoX Unity XR SDK使用说明 v1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="头显按键" href="chapter_4_1_2_HMD.html" />
+    <link rel="prev" title="4.SDK功能介绍" href="../chapter_4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> RhinoX Unity XR SDK使用说明
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1.html">1.总体介绍Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3.html">3.入门指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../chapter_4.html">4.SDK功能介绍</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../chapter_4.html#id2">4.1 手柄&amp;头显输入</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">手柄按键/振动</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1. 手柄按键映射</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.手柄振动/触觉</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_4_1_2_HMD.html">头显按键</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#tag">4.2 Tag跟踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4.html#id3">4.3 手部跟踪</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5.html">5.API文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6.html">6.开发工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7.html">7.扩展模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8.html">8.FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RhinoX Unity XR SDK使用说明</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../chapter_4.html">4.SDK功能介绍</a> &raquo;</li>
+      <li>手柄按键/振动</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Controller_HMD_Function/chapter_4_1_1_Controller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1>手柄按键/振动<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p class="linemarker linemarker-6">此章节主要介绍手柄相关的功能，包括按键，振动（触觉）等。</p>
+<section id="id3">
+<h2>1. 手柄按键映射<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-12">RhinoX Pro设备的主要交互输入是通过手柄跟踪以及头显与手柄上的按键来实现的，这里我们主要说明这些按键与Unity XR中键值的对应
+关系，以及基本使用方法。</p>
+<p class="linemarker linemarker-16">手柄按键示意图：</p>
+<blockquote>
+<div><img alt="../_images/2_image4.jpg" src="../_images/2_image4.jpg" />
+<img alt="../_images/2_image5.jpg" src="../_images/2_image5.jpg" />
+</div></blockquote>
+<p class="linemarker linemarker-21">下表为按键与Unity键值对应关系</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-24">按键</p></th>
+<th class="head"><p class="linemarker linemarker-24">Unity键值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-26">扳机键</p></td>
+<td><p class="linemarker linemarker-26"><a class="reference external" href="https://docs.unity.cn/2019.1/Documentation/ScriptReference/XR.CommonUsages-triggerButton.html">CommonUsages.triggerButton</a>，表示扳机键是否按下</p>
+<p class="linemarker linemarker-28"><a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.CommonUsages-trigger.html">CommonUsages.trigger</a> ，表示扳机键被按下的程度</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-29">抓握键</p></td>
+<td><p class="linemarker linemarker-29"><a class="reference external" href="https://docs.unity3d.com/cn/2020.3/ScriptReference/XR.CommonUsages-gripButton.html">CommonUsages.gripButton</a>，表示抓握键是否按下</p>
+<p class="linemarker linemarker-31"><a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.CommonUsages-grip.html">CommonUsages.grip</a>，表示抓握键按下的程度</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-32">摇杆</p></td>
+<td><p class="linemarker linemarker-32"><a class="reference external" href="https://docs.unity3d.com/cn/2019.4/ScriptReference/XR.CommonUsages-primary2DAxisClick.html">CommonUsages.primary2DAxisClick</a>，表示摇杆是否按下</p>
+<p class="linemarker linemarker-34"><a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.CommonUsages-primary2DAxis.html">CommonUsages.primary2DAxis</a>，表示摇杆上下左右移动的方向</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-35">菜单键</p></td>
+<td><p class="linemarker linemarker-35"><a class="reference external" href="https://docs.unity3d.com/cn/2021.2/ScriptReference/XR.CommonUsages-menuButton.html">CommonUsages.menuButton</a>，表示菜单键是否按下</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-36">A/X</p></td>
+<td><p class="linemarker linemarker-36"><a class="reference external" href="https://docs.unity3d.com/cn/2021.1/ScriptReference/XR.CommonUsages-primaryButton.html">CommonUsages.primaryButton</a>，表示A/X 键是否按下</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-37">B/Y</p></td>
+<td><p class="linemarker linemarker-37"><a class="reference external" href="https://docs.unity3d.com/cn/2020.2/ScriptReference/XR.CommonUsages-secondaryButton.html">CommonUsages.secondaryButton</a>，表示B/Y键是否按下</p></td>
+</tr>
+</tbody>
+</table>
+<p class="linemarker linemarker-59">下面是部分代码调用示例，也可以点击 <a class="reference external" href="https://developer.ximmerse.com/#/example?id=7">按键振动使用示例教程</a> 下载示例进行学习，详细使用方法请参考 <a class="reference external" href="https://docs.unity3d.com/cn/current/Manual/xr_input.html">Unity XR Input</a> ：</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="c1">//先列出所有输入设备，根据XR节点获取输入设备，必须先获取到输入设备，才能获取对应输入设备的输入键值</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">controllerlist</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="p">&lt;</span><span class="n">InputDevice</span><span class="p">&gt;();</span><span class="w"></span>
+
+<span class="n">InputDevices</span><span class="p">.</span><span class="n">GetDevicesAtXRNode</span><span class="p">(</span><span class="n">XRNode</span><span class="p">.</span><span class="n">RightHand</span><span class="p">,</span><span class="w"> </span><span class="n">controllerlist</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">triggerValue</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//定义一个GameObject变量，通过其显隐状态测试键值获取是否生效</span>
+<span class="k">public</span><span class="w"> </span><span class="n">GameObject</span><span class="w"> </span><span class="n">ButtonTest</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controllerlist</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//当右手设备数量为1时，定义一个输入设备为rightcontroller</span>
+<span class="w">    </span><span class="n">InputDevice</span><span class="w"> </span><span class="n">rightcontroller</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controllerlist</span><span class="p">[</span><span class="m">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//根据上面获取到的设备访问设备的输入键值，这里以右手柄的Trigger键为例，当按键按下时隐藏或者显示ButtonTest物体（可以是一个Cube）</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rightcontroller</span><span class="p">.</span><span class="n">TryGetFeatureValue</span><span class="p">(</span><span class="n">CommonUsages</span><span class="p">.</span><span class="n">triggerButton</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">triggerValue</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">triggerValue</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">ButtonTest</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(!</span><span class="n">ButtonTest</span><span class="p">.</span><span class="n">activeInHierarchy</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>2.手柄振动/触觉<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-92">手柄除了有按键输入功能外，还有马达提供振动的功能，主要用于实现应用场景中的触觉反馈。</p>
+<p class="linemarker linemarker-94">您可以将触觉事件发送到 InputDevice。触觉呈脉冲形式，具有振幅和持续时间。</p>
+<p class="linemarker linemarker-96">以下示例获取右手的输入设备，检查设备是否具有触觉功能，然后在有触觉功能的情况下再现脉冲。在已知具有触觉功能的前提下
+可以去掉检测语句。</p>
+<p class="linemarker linemarker-99">可以将以下方法挂载在触发事件下面（如Hover Event，Button点击事件），即可实现事件触发手柄振动。</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TouchHaptic</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//先获取输入设备，此处输入设备为右手柄</span>
+<span class="w">  </span><span class="kt">var</span><span class="w"> </span><span class="n">controllerlist</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="p">&lt;</span><span class="n">InputDevice</span><span class="p">&gt;();</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">InputDevices</span><span class="p">.</span><span class="n">GetDevicesAtXRNode</span><span class="p">(</span><span class="n">XRNode</span><span class="p">.</span><span class="n">RightHand</span><span class="p">,</span><span class="w"> </span><span class="n">controllerlist</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">HapticCapabilities</span><span class="w"> </span><span class="n">capabilities</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controllerlist</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">InputDevice</span><span class="w"> </span><span class="n">rightcontroller</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controllerlist</span><span class="p">[</span><span class="m">0</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rightcontroller</span><span class="p">.</span><span class="n">TryGetHapticCapabilities</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="n">capabilities</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">capabilities</span><span class="p">.</span><span class="n">supportsImpulse</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">//设置振动幅度为0.5，振动时长为0.5秒</span>
+<span class="w">                </span><span class="kt">uint</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="kt">float</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0.5f</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="kt">float</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0.5f</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">rightcontroller</span><span class="p">.</span><span class="n">SendHapticImpulse</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">amplitude</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-131">若想获取更多输入方式，可以访问 <a class="reference external" href="https://docs.unity3d.com/ScriptReference/XR.CommonUsages.html">UnityXR官方文档</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-136">Unity XR有新（Input System Package）旧（Input Manager）两种输入系统。</p>
+<p class="linemarker linemarker-138">文档中的手柄按键获取使用的是新的输入系统方式，头显按键的获取方式用的是旧的输入系统，为了避免报错，
+我们需要将 <strong>Active Input Handling</strong> 设置为Both。</p>
+<p class="linemarker linemarker-141">如果您需要详细了解两种输入系统的区别，您可以在 <a class="reference external" href="https://docs.unity3d.com/cn/current/Manual/xr_input.html">Unity XR Input</a> 官网中进行学习</p>
+</div>
+<img alt="../_images/inputsystem.png" src="../_images/inputsystem.png" />
+<p class="linemarker linemarker-146">XR Interaction Toolkit是Unity XR交互非常重要的工具，建议您详细查看 <a class="reference external" href="https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit&#64;2.1/manual/index.html">XRInteractionToolkit官方文档</a> 进行学习</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chapter_4.html" class="btn btn-neutral float-left" title="4.SDK功能介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_4_1_2_HMD.html" class="btn btn-neutral float-right" title="头显按键" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021 XIMMERSE Co., Ltd. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
