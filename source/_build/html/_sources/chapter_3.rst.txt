@@ -19,7 +19,7 @@
 
 目前此SDK主要支持RhinoX Pro头显，开发前请确认您使用了正确的头显设备。
 
-- RhinoX Pro设备(灰色或者蓝色)
+- RhinoX Pro设备或者RhinoX 2.0设备
 
 - 一根Type-C数据线
 
@@ -73,7 +73,7 @@
 3.3 下载并导入SDK
 ----------------------------------
 
-目前RhinoX Pro头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载
+目前RhinoX Pro及RhinoX 2.0 头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载
 
 
 1 下载SDK
@@ -85,8 +85,8 @@
 
 .. image:: _static/sdkpkg.png
 
-.. note::
-   如果压缩包名称不一致，请确认您是否下载了RhinoX一代头显的SDK，此SDK与RhinoX Pro的SDK不一样
+.. .. note::
+..    如果压缩包名称不一致，请确认您是否下载了RhinoX一代头显的SDK，此SDK与RhinoX Pro的SDK不一样
 
 .. _SDK页面: https://developer.ximmerse.com/#/sdk?id=1
 
@@ -258,30 +258,46 @@ Player Settings中有很多发布需要的设置项，为了确保打包出来�
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击XR -> XR Origin(ActionBase)自动添加组件
+删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击 **Ximmerse XR -> XR Origin(ActionBase)** 自动添加组件
 
 
-.. note::
+.. .. note::
    请勿修改XR Origin以及Main Camera的Rotation值
 
    若使用的XR Interaction Toolkit版本比较新，此处XR Origin(ActionBase)显示为XR Origin(VR)
 
-.. image:: _static/xrrigcreate.png
+.. image:: _static/CreateOrigin.png
+.. 将Main Camera上的Tracked Pose Driver（input system）替换为Tracked Pose Driver脚本
 
-将Main Camera上的Tracked Pose Driver（input system）替换为Tracked Pose Driver脚本
+.. .. attention::
+   .. 如果不替换，应用启动后如果头显息屏或者退到后台再启动，画面会卡住
 
-.. attention::
-   如果不替换，应用启动后如果头显息屏或者退到后台再启动，画面会卡住
-
-.. image:: _static/trackposedriver.png
+.. .. image:: _static/trackposedriver.png
 
 
 
 创建完成后如下图：
 
 .. image:: _static/xrorigin.png
+   :height: 640px
+   :width: 640px
+.. note:: 
+   自 RhinoX Unity XR SDK v1.8.1之后，在 **Ximmerse XR->XR Origin** 中创建，创建完成后默认会在 **XR Origin** 对象上挂载 **XMR_Manager** 脚本组件以控制管理全局拓展功能，如第一人称虚实融合投屏，渲染优化等等。
 
-此处默认添加的是ActionBase组件，除此之外还有DeviceBase组件，若想详细了解可参考 `从零开始教程`_ 。
+此处只添加了 **XR Origin** 组件，没有添加相关的交互组件。
+
+
+可在 **Camera Offset** 对象上单机鼠标右键，点击 **XR->Ray Interactor** 创建
+
+.. image:: _static/CreateRayInteractor.png
+
+创建完成后如下图所示
+
+.. image:: _static/AddRayInteractor.png
+
+.. note:: 
+   此处默认使用Action Base交互方式，若想了解已经过时的Device Base
+   的交互方式详细可参考 `从零开始教程`_ 。
 
 .. _从零开始教程: https://developer.ximmerse.com/#/example?id=6
 
@@ -292,7 +308,7 @@ Player Settings中有很多发布需要的设置项，为了确保打包出来�
 
 MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所以在MR应用中通常不需要天空盒作为背景，按照如下步骤可以去除天空盒
 
-在场景中选择XRRig->Camera Offset->Main camera, 在Inspector中更改如下设置：
+在场景中选择XR Origin->Camera Offset->Main camera, 在Inspector中更改如下设置：
 
 - Camera的Clear Flags选为Solid Color
 
