@@ -360,7 +360,7 @@ MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所�
 
 .. image:: _static/inputaction1.png  
 
-.. _6 创建GroundPlane:
+.. _6 创建Ground Plane:
 
 6.创建Ground Plane
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -368,7 +368,7 @@ MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所�
 在头显开发使用过程中 **Ground Plane** 是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别 **Ground Plane** 中
 绑定的对应ID的定位信标，来定位场景的地面，他的作用与VR一体机中扫描地面来确定游戏使用范围的原理类似。
 
-通常我们将Groundplane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
+通常我们将Ground Plane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
 就会自动被定位到 **Ground Plane** 对象放置的平面（通常是地面）
 
 如果您不希望将 **Ground Plane** 对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置 **Ground Plane** 对象的Transform的
@@ -377,7 +377,7 @@ Y值来调整他与Unity场景地面的相对高度，具体效果，您可以�
 .. attention::
    举个例子：如果将Ground Plane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Ground Plane
    对象（Beacon）后，你的视线高度（Camera）就是您的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
-   。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Groundplane的
+   。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Ground Plane的
    Positon Y值也设置为0即可。
 
 
@@ -449,7 +449,7 @@ Y值来调整他与Unity场景地面的相对高度，具体效果，您可以�
 .. image:: _static/lookbeacon.png
 
 此时您将看到一个地面出现在Beacon上方，如果上面的设置中勾选了DebugView，识别到之后Beacon上会显示红绿蓝三轴坐标
-，如果勾选了却不显示，则代表未识别成功，请返回  :ref:`创建GroundPlane<6 创建GroundPlane>` 章节检查配置
+，如果勾选了却不显示，则代表未识别成功，请返回  :ref:`创建Ground Plane<6 创建Ground Plane>` 章节检查配置
 
 .. image:: _static/debugview.png
 

@@ -68,16 +68,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#id19">4.移除天空盒</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id20">5.添加手柄交互功能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ground-plane">6.创建Ground Plane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">7.添加地面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">7.添加地面</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id22">3.6 打包运行</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id23">1.打包应用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id24">2.安装应用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id25">3.运行应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">3.6 打包运行</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">1.打包应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">2.安装应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">3.运行应用</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id26">3.7 参考示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id27">3.7 参考示例</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="chapter_4.html">4.SDK功能介绍</a></li>
@@ -416,10 +416,10 @@
 <img alt="_images/inputaction1.png" src="_images/inputaction1.png" />
 </section>
 <section id="ground-plane">
-<span id="groundplane"></span><h3>6.创建Ground Plane<a class="headerlink" href="#ground-plane" title="Permalink to this heading"></a></h3>
+<span id="id21"></span><h3>6.创建Ground Plane<a class="headerlink" href="#ground-plane" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-368">在头显开发使用过程中 <strong>Ground Plane</strong> 是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别 <strong>Ground Plane</strong> 中
 绑定的对应ID的定位信标，来定位场景的地面，他的作用与VR一体机中扫描地面来确定游戏使用范围的原理类似。</p>
-<p class="linemarker linemarker-371">通常我们将Groundplane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
+<p class="linemarker linemarker-371">通常我们将Ground Plane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
 就会自动被定位到 <strong>Ground Plane</strong> 对象放置的平面（通常是地面）</p>
 <p class="linemarker linemarker-374">如果您不希望将 <strong>Ground Plane</strong> 对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置 <strong>Ground Plane</strong> 对象的Transform的
 Y值来调整他与Unity场景地面的相对高度，具体效果，您可以通过实际测试观察.</p>
@@ -427,7 +427,7 @@ Y值来调整他与Unity场景地面的相对高度，具体效果，您可以�
 <p class="admonition-title">Attention</p>
 <p class="linemarker linemarker-378">举个例子：如果将Ground Plane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Ground Plane
 对象（Beacon）后，你的视线高度（Camera）就是您的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
-。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Groundplane的
+。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Ground Plane的
 Positon Y值也设置为0即可。</p>
 </div>
 <div class="admonition note">
@@ -446,24 +446,24 @@ Positon Y值也设置为0即可。</p>
 <p class="linemarker linemarker-402">需注意 <strong>Tag Ground Plane</strong> 组件中有许多与定位相关的参数，若没有特殊需求，直接使用SDK中默认的配置参数即可</p>
 </div>
 </section>
-<section id="id21">
-<h3>7.添加地面<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<section id="id22">
+<h3>7.添加地面<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-407">在Hierachy界面点击鼠标右键，创建一个Plane，Transform设置为（0，0，0），至此一个简单的场景创建完成。</p>
 <p class="linemarker linemarker-409">此场景只包含一个地面，以及双手柄的模型，如果您需要实现更丰富的功能，如模型的抓取，UI交互等，您可以自行学习Unity XR相关
 开发知识，也可以参考 <a class="reference external" href="https://developer.ximmerse.com/#/example?id=6">从零开始教程</a> 进行学习。</p>
 </section>
 </section>
-<section id="id22">
-<h2>3.6 打包运行<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h2>
 <section id="id23">
-<h3>1.打包应用<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<h2>3.6 打包运行<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h2>
+<section id="id24">
+<h3>1.打包应用<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-422">选择 <strong>File-&gt;Build Settings</strong> ，点击 <strong>Add Open Scenes</strong> 按钮添加当前Scene，然后点击 <strong>Build</strong> 按钮，设置APK名称和路径，开始编译:</p>
 <img alt="_images/7.1_image14.jpg" src="_images/7.1_image14.jpg" />
 <p class="linemarker linemarker-426">等待编译完成，Unity将弹出保存路径，可以看到编译出的APK文件。</p>
 <img alt="_images/7.1_image15.jpg" src="_images/7.1_image15.jpg" />
 </section>
-<section id="id24">
-<h3>2.安装应用<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<section id="id25">
+<h3>2.安装应用<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-433">保证RhinoX Pro设备开机并电量充足，使用Type-C数据线连接开发电脑和RhinoX Pro设备，通过如下adb命令安装APK即可：</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -471,20 +471,20 @@ Positon Y值也设置为0即可。</p>
 </div>
 <img alt="_images/7.1_image16.jpg" src="_images/7.1_image16.jpg" />
 </section>
-<section id="id25">
-<h3>3.运行应用<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<section id="id26">
+<h3>3.运行应用<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-447">确认双手柄均已连接头显，通过手柄射线启动应用，启动应用后先将Beacon（圆盘）放在地面，戴上头显低头识别Beacon。</p>
 <img alt="_images/lookbeacon.png" src="_images/lookbeacon.png" />
 <p class="linemarker linemarker-451">此时您将看到一个地面出现在Beacon上方，如果上面的设置中勾选了DebugView，识别到之后Beacon上会显示红绿蓝三轴坐标
-，如果勾选了却不显示，则代表未识别成功，请返回  <a class="reference internal" href="#groundplane"><span class="std std-ref">创建GroundPlane</span></a> 章节检查配置</p>
+，如果勾选了却不显示，则代表未识别成功，请返回  <a class="reference internal" href="#ground-plane"><span class="std std-ref">创建Ground Plane</span></a> 章节检查配置</p>
 <img alt="_images/debugview.png" src="_images/debugview.png" />
 <p class="linemarker linemarker-456">移动Beacon的位置，重新定位Beacon，地面位置会跟着移动。当手柄在视野内移动时，手柄的模型会跟随移动。</p>
 <p class="linemarker linemarker-458">如果您能够看到上述现象，则表示您已经基本掌握了SDK的开发流程，更复杂的应用开发，您点击 <a class="reference external" href="https://forum.ximmerse.com/detail?post_id=e18b9208-3e1e-40aa-b291-329990235ad9">Unity XR培训资料</a> 进入论坛
 查看相关学习资料，预祝您开发顺利！</p>
 </section>
 </section>
-<section id="id26">
-<h2>3.7 参考示例<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h2>
+<section id="id27">
+<h2>3.7 参考示例<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h2>
 <p class="linemarker linemarker-467">如果您是初次搭建场景，您可以直接导入Sample示例进行参考，具体操作步骤如下</p>
 <img alt="_images/hellounity.png" src="_images/hellounity.png" />
 <img alt="_images/hellounitypath.png" src="_images/hellounitypath.png" />

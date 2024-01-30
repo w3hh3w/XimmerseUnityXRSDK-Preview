@@ -19,7 +19,7 @@
 
 目前此SDK主要支持RhinoX Pro头显，开发前请确认您使用了正确的头显设备。
 
-- RhinoX Pro设备(灰色或者蓝色)
+- RhinoX Pro设备或者RhinoX 2.0设备
 
 - 一根Type-C数据线
 
@@ -73,7 +73,7 @@
 3.3 下载并导入SDK
 ----------------------------------
 
-目前RhinoX Pro头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载
+目前RhinoX Pro及RhinoX 2.0 头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载
 
 
 1 下载SDK
@@ -85,8 +85,8 @@
 
 .. image:: _static/sdkpkg.png
 
-.. note::
-   如果压缩包名称不一致，请确认您是否下载了RhinoX一代头显的SDK，此SDK与RhinoX Pro的SDK不一样
+.. .. note::
+..    如果压缩包名称不一致，请确认您是否下载了RhinoX一代头显的SDK，此SDK与RhinoX Pro的SDK不一样
 
 .. _SDK页面: https://developer.ximmerse.com/#/sdk?id=1
 
@@ -258,30 +258,46 @@ Player Settings中有很多发布需要的设置项，为了确保打包出来�
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击XR -> XR Origin(ActionBase)自动添加组件
+删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击 **Ximmerse XR -> XR Origin(ActionBase)** 自动添加组件
 
 
-.. note::
+.. .. note::
    请勿修改XR Origin以及Main Camera的Rotation值
 
    若使用的XR Interaction Toolkit版本比较新，此处XR Origin(ActionBase)显示为XR Origin(VR)
 
-.. image:: _static/xrrigcreate.png
+.. image:: _static/CreateOrigin.png
+.. 将Main Camera上的Tracked Pose Driver（input system）替换为Tracked Pose Driver脚本
 
-将Main Camera上的Tracked Pose Driver（input system）替换为Tracked Pose Driver脚本
+.. .. attention::
+   .. 如果不替换，应用启动后如果头显息屏或者退到后台再启动，画面会卡住
 
-.. attention::
-   如果不替换，应用启动后如果头显息屏或者退到后台再启动，画面会卡住
-
-.. image:: _static/trackposedriver.png
+.. .. image:: _static/trackposedriver.png
 
 
 
 创建完成后如下图：
 
 .. image:: _static/xrorigin.png
+   :height: 640px
+   :width: 640px
+.. note:: 
+   自 RhinoX Unity XR SDK v1.8.1之后，在 **Ximmerse XR->XR Origin** 中创建XR Origin对象，创建完成后默认会在 **XR Origin** 对象上挂载 **XMR_Manager** 脚本组件以控制管理全局拓展功能，如第一人称虚实融合投屏，渲染优化等等。
 
-此处默认添加的是ActionBase组件，除此之外还有DeviceBase组件，若想详细了解可参考 `从零开始教程`_ 。
+此处只添加了 **XR Origin** 组件，没有添加相关的交互组件。
+
+
+可在 **Camera Offset** 对象上单机鼠标右键，点击 **XR->Ray Interactor** 创建
+
+.. image:: _static/CreateRayInteractor.png
+
+创建完成后如下图所示
+
+.. image:: _static/AddRayInteractor.png
+
+.. note:: 
+   此处默认使用Action Base交互方式，若想了解已经过时的Device Base
+   的交互方式详细可参考 `从零开始教程`_ 。
 
 .. _从零开始教程: https://developer.ximmerse.com/#/example?id=6
 
@@ -292,7 +308,7 @@ Player Settings中有很多发布需要的设置项，为了确保打包出来�
 
 MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所以在MR应用中通常不需要天空盒作为背景，按照如下步骤可以去除天空盒
 
-在场景中选择XRRig->Camera Offset->Main camera, 在Inspector中更改如下设置：
+在场景中选择XR Origin->Camera Offset->Main camera, 在Inspector中更改如下设置：
 
 - Camera的Clear Flags选为Solid Color
 
@@ -305,8 +321,8 @@ MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所�
 5.添加手柄交互功能
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-在MR应用中，我们主要使用手柄进行交互，在上面添加的XR Origin中，我们可以看到 **LeftHand Controller** 
-以及 **RightHand Controller** 两个对象，他们分别代表左右手柄。
+在MR应用中，我们主要使用手柄进行交互，在上面添加的 **Ray Interactor** 主要为射线交互的方式。我们可以看到在 **Ray Interatcor** 的 **Inspector** 面板中有 **XR Controller** 组件。
+该组件就是用于获取交互设备的相关输入并定义交互行为的组件。
 
 这里我们以左手柄为例，介绍如何添加手柄交互功能
 
@@ -344,46 +360,46 @@ MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所�
 
 .. image:: _static/inputaction1.png  
 
-.. _6 创建GroundPlane:
+.. _6 创建Ground Plane:
 
 6.创建Ground Plane
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-在RhinoX Pro的系统中 Ground plane是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别Ground Plane中
+在头显开发使用过程中 **Ground Plane** 是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别 **Ground Plane** 中
 绑定的对应ID的定位信标，来定位场景的地面，他的作用与VR一体机中扫描地面来确定游戏使用范围的原理类似。
 
-通常我们将Groundplane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
-就会自动被定位到Groundplane对象放置的平面（通常是地面）
+通常我们将Ground Plane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
+就会自动被定位到 **Ground Plane** 对象放置的平面（通常是地面）
 
-如果你不希望将Groundplane对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置Groundplane对象的Transform的
+如果您不希望将 **Ground Plane** 对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置 **Ground Plane** 对象的Transform的
 Y值来调整他与Unity场景地面的相对高度，具体效果，您可以通过实际测试观察.
 
 .. attention::
-   举个例子：如果将Groundplane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Groundplane
-   对象（Beacon）后，你的视线高度（Camera）就是你的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
-   。如果你希望Unity中的地面与现实的地面重合，你可以将Beacon放置在距离现实地面1m高的位置，或者将Groundplane的
+   举个例子：如果将Ground Plane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Ground Plane
+   对象（Beacon）后，你的视线高度（Camera）就是您的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
+   。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Ground Plane的
    Positon Y值也设置为0即可。
 
 
 .. note::
 
-   因为一体机出货默认标配的是1号Beacon，所以我们通常使用Beacon作为Ground Plane。如果Beacon无法满足使用需求，可向销售申请
+   因为一体机出货默认标配的是Beacon类型的定位板，所以我们通常使用Beacon作为Ground Plane。如果Beacon无法满足使用需求，可联系商务人员申请
    其他形式的Tag使用，具体使用方法请查看 `TagProfileLoading介绍`_
 
 .. _TagProfileLoading介绍: https://doc.ximmerse.com/sdkconf/unityxrsdk/Tag_Tracking/chapter_4_2_1_TagProfileLoading.html
 
-先添加Tag Profile Loading组件，然后勾选Beacon（表示可识别1，2，3号Beacon）
+先添加 **Tag Profile Loading** 组件，然后勾选 **Beacon** （表示可识别1，2，3号Beacon）
 
 .. image:: _static/tagprofileloadingcreate.png
 
-.. image:: _static/tagprofileloading.png
+.. image:: _static/TagProfileLoading181.png
 
-右键添加 **Ground Plane** ，设置Track ID为65（代表1号Beacon）,勾选 **DebugView** 选项（识别到会显示坐标轴）
+右键添加 **Ground Plane** ，设置 **Track ID** 为65（代表 **1号Beacon**）,勾选 **DebugView** 选项（识别到会显示坐标轴）
 
 .. image:: _static/gpcreate.png
 
 .. image:: _static/gpconfig.png  
-
+.. note:: 需注意 **Tag Ground Plane** 组件中有许多与定位相关的参数，若没有特殊需求，直接使用SDK中默认的配置参数即可
 
 7.添加地面
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -403,7 +419,7 @@ Y值来调整他与Unity场景地面的相对高度，具体效果，您可以�
 1.打包应用
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-选择File->Build Settings，点击Add Open Scenes按钮添加当前Scene，然后点击 **Build** 按钮，设置APK名称和路径，开始编译:
+选择 **File->Build Settings** ，点击 **Add Open Scenes** 按钮添加当前Scene，然后点击 **Build** 按钮，设置APK名称和路径，开始编译:
 
 .. image:: _static/7.1_image14.jpg
 
@@ -433,7 +449,7 @@ Y值来调整他与Unity场景地面的相对高度，具体效果，您可以�
 .. image:: _static/lookbeacon.png
 
 此时您将看到一个地面出现在Beacon上方，如果上面的设置中勾选了DebugView，识别到之后Beacon上会显示红绿蓝三轴坐标
-，如果勾选了却不显示，则代表未识别成功，请返回  :ref:`创建GroundPlane<6 创建GroundPlane>` 章节检查配置
+，如果勾选了却不显示，则代表未识别成功，请返回  :ref:`创建Ground Plane<6 创建Ground Plane>` 章节检查配置
 
 .. image:: _static/debugview.png
 

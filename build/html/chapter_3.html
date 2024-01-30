@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4.SDK功能介绍" href="chapter_4.html" />
-    <link rel="prev" title="2.支持硬件" href="chapter_2.html" /> 
+    <link rel="prev" title="2.设备及配件简介" href="chapter_2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="chapter_1.html">1.总体介绍</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapter_2.html">2.支持硬件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter_2.html">2.设备及配件简介</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3.入门指南</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id4">3.1 准备工作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">3.2 搭建开发环境</a><ul>
@@ -68,16 +68,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#id19">4.移除天空盒</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id20">5.添加手柄交互功能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ground-plane">6.创建Ground Plane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">7.添加地面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">7.添加地面</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id22">3.6 打包运行</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id23">1.打包应用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id24">2.安装应用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id25">3.运行应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">3.6 打包运行</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">1.打包应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">2.安装应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">3.运行应用</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id26">3.7 参考示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id27">3.7 参考示例</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="chapter_4.html">4.SDK功能介绍</a></li>
@@ -127,7 +127,7 @@
 <h2>3.1 准备工作<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p>目前此SDK主要支持RhinoX Pro头显，开发前请确认您使用了正确的头显设备。</p>
 <ul class="simple">
-<li><p>RhinoX Pro设备(灰色或者蓝色)</p></li>
+<li><p>RhinoX Pro设备或者RhinoX 2.0设备</p></li>
 <li><p>一根Type-C数据线</p></li>
 <li><p>一台开发电脑</p></li>
 </ul>
@@ -171,16 +171,12 @@
 </section>
 <section id="sdk">
 <h2>3.3 下载并导入SDK<a class="headerlink" href="#sdk" title="Permalink to this heading"></a></h2>
-<p>目前RhinoX Pro头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载</p>
+<p>目前RhinoX Pro及RhinoX 2.0 头显只支持RhinoX Unity XR SDK，您需要选择正确的SDK进行下载</p>
 <section id="id8">
 <h3>1 下载SDK<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <p>跳转到 <a class="reference external" href="https://developer.ximmerse.com/#/sdk?id=1">SDK页面</a> ，选择RhinoX Unity XR SDK页面， 点击 <strong>“下载最新版”</strong> 进行下载</p>
 <p>下载完成后您将得到如下压缩包</p>
 <img alt="_images/sdkpkg.png" src="_images/sdkpkg.png" />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果压缩包名称不一致，请确认您是否下载了RhinoX一代头显的SDK，此SDK与RhinoX Pro的SDK不一样</p>
-</div>
 </section>
 <section id="id10">
 <h3>2 新建Unity项目<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
@@ -362,27 +358,29 @@
 </section>
 <section id="id17">
 <h3>3.添加摄像机<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
-<p>删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击XR -&gt; XR Origin(ActionBase)自动添加组件</p>
+<p>删除场景中默认的Main Camera，在Hierarchy面板单击鼠标右键，点击 <strong>Ximmerse XR -&gt; XR Origin(ActionBase)</strong> 自动添加组件</p>
+<img alt="_images/CreateOrigin.png" src="_images/CreateOrigin.png" />
+<p>创建完成后如下图：</p>
+<a class="reference internal image-reference" href="_images/xrorigin.png"><img alt="_images/xrorigin.png" src="_images/xrorigin.png" style="width: 640px; height: 640px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>请勿修改XR Origin以及Main Camera的Rotation值</p>
-<p>若使用的XR Interaction Toolkit版本比较新，此处XR Origin(ActionBase)显示为XR Origin(VR)</p>
+<p>自 RhinoX Unity XR SDK v1.8.1之后，在 <strong>Ximmerse XR-&gt;XR Origin</strong> 中创建XR Origin对象，创建完成后默认会在 <strong>XR Origin</strong> 对象上挂载 <strong>XMR_Manager</strong> 脚本组件以控制管理全局拓展功能，如第一人称虚实融合投屏，渲染优化等等。</p>
 </div>
-<img alt="_images/xrrigcreate.png" src="_images/xrrigcreate.png" />
-<p>将Main Camera上的Tracked Pose Driver（input system）替换为Tracked Pose Driver脚本</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>如果不替换，应用启动后如果头显息屏或者退到后台再启动，画面会卡住</p>
+<p>此处只添加了 <strong>XR Origin</strong> 组件，没有添加相关的交互组件。</p>
+<p>可在 <strong>Camera Offset</strong> 对象上单机鼠标右键，点击 <strong>XR-&gt;Ray Interactor</strong> 创建</p>
+<img alt="_images/CreateRayInteractor.png" src="_images/CreateRayInteractor.png" />
+<p>创建完成后如下图所示</p>
+<img alt="_images/AddRayInteractor.png" src="_images/AddRayInteractor.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此处默认使用Action Base交互方式，若想了解已经过时的Device Base
+的交互方式详细可参考 <a class="reference external" href="https://developer.ximmerse.com/#/example?id=6">从零开始教程</a> 。</p>
 </div>
-<img alt="_images/trackposedriver.png" src="_images/trackposedriver.png" />
-<p>创建完成后如下图：</p>
-<img alt="_images/xrorigin.png" src="_images/xrorigin.png" />
-<p>此处默认添加的是ActionBase组件，除此之外还有DeviceBase组件，若想详细了解可参考 <a class="reference external" href="https://developer.ximmerse.com/#/example?id=6">从零开始教程</a> 。</p>
 </section>
 <section id="id19">
 <h3>4.移除天空盒<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
 <p>MR应用与VR应用的最大区别在于，MR可以看到现实的世界，所以在MR应用中通常不需要天空盒作为背景，按照如下步骤可以去除天空盒</p>
-<p>在场景中选择XRRig-&gt;Camera Offset-&gt;Main camera, 在Inspector中更改如下设置：</p>
+<p>在场景中选择XR Origin-&gt;Camera Offset-&gt;Main camera, 在Inspector中更改如下设置：</p>
 <ul class="simple">
 <li><p>Camera的Clear Flags选为Solid Color</p></li>
 </ul>
@@ -394,8 +392,8 @@
 </section>
 <section id="id20">
 <h3>5.添加手柄交互功能<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
-<p>在MR应用中，我们主要使用手柄进行交互，在上面添加的XR Origin中，我们可以看到 <strong>LeftHand Controller</strong>
-以及 <strong>RightHand Controller</strong> 两个对象，他们分别代表左右手柄。</p>
+<p>在MR应用中，我们主要使用手柄进行交互，在上面添加的 <strong>Ray Interactor</strong> 主要为射线交互的方式。我们可以看到在 <strong>Ray Interatcor</strong> 的 <strong>Inspector</strong> 面板中有 <strong>XR Controller</strong> 组件。
+该组件就是用于获取交互设备的相关输入并定义交互行为的组件。</p>
 <p>这里我们以左手柄为例，介绍如何添加手柄交互功能</p>
 <p><strong>1. 添加手柄的默认设置</strong></p>
 <p>按照如下步骤添加系统预设配置文件，这些设置主要用于绑定手柄按键与其对应的操作行为。</p>
@@ -418,50 +416,54 @@
 <img alt="_images/inputaction1.png" src="_images/inputaction1.png" />
 </section>
 <section id="ground-plane">
-<span id="groundplane"></span><h3>6.创建Ground Plane<a class="headerlink" href="#ground-plane" title="Permalink to this heading"></a></h3>
-<p>在RhinoX Pro的系统中 Ground plane是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别Ground Plane中
+<span id="id21"></span><h3>6.创建Ground Plane<a class="headerlink" href="#ground-plane" title="Permalink to this heading"></a></h3>
+<p>在头显开发使用过程中 <strong>Ground Plane</strong> 是非常重要的组件，它主要用于定位场景的地面，应用启动后通过识别 <strong>Ground Plane</strong> 中
 绑定的对应ID的定位信标，来定位场景的地面，他的作用与VR一体机中扫描地面来确定游戏使用范围的原理类似。</p>
-<p>通常我们将Groundplane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
-就会自动被定位到Groundplane对象放置的平面（通常是地面）</p>
-<p>如果你不希望将Groundplane对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置Groundplane对象的Transform的
+<p>通常我们将Ground Plane对象与场景的地面置于同一平面（与Unity场景的地面重合），这样启动应用，并识别定位板之后，场景的地面
+就会自动被定位到 <strong>Ground Plane</strong> 对象放置的平面（通常是地面）</p>
+<p>如果您不希望将 <strong>Ground Plane</strong> 对象放置在地面，比如放置在墙上或者桌子上，那么您可以通过设置 <strong>Ground Plane</strong> 对象的Transform的
 Y值来调整他与Unity场景地面的相对高度，具体效果，您可以通过实际测试观察.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>举个例子：如果将Groundplane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Groundplane
-对象（Beacon）后，你的视线高度（Camera）就是你的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
-。如果你希望Unity中的地面与现实的地面重合，你可以将Beacon放置在距离现实地面1m高的位置，或者将Groundplane的
+<p>举个例子：如果将Ground Plane对象的Position的Y值设置为1，Unity场景地面的Y值为0，那么当你戴上头显低头识别到Ground Plane
+对象（Beacon）后，你的视线高度（Camera）就是您的身高加上1m，这个时候Unity场景里面的地面就是在现实地面的下面1m的位置
+。如果您希望Unity中的地面与现实的地面重合，您可以将Beacon放置在距离现实地面1m高的位置，或者将Ground Plane的
 Positon Y值也设置为0即可。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>因为一体机出货默认标配的是1号Beacon，所以我们通常使用Beacon作为Ground Plane。如果Beacon无法满足使用需求，可向销售申请
+<p>因为一体机出货默认标配的是Beacon类型的定位板，所以我们通常使用Beacon作为Ground Plane。如果Beacon无法满足使用需求，可联系商务人员申请
 其他形式的Tag使用，具体使用方法请查看 <a class="reference external" href="https://doc.ximmerse.com/sdkconf/unityxrsdk/Tag_Tracking/chapter_4_2_1_TagProfileLoading.html">TagProfileLoading介绍</a></p>
 </div>
-<p>先添加Tag Profile Loading组件，然后勾选Beacon（表示可识别1，2，3号Beacon）</p>
+<p>先添加 <strong>Tag Profile Loading</strong> 组件，然后勾选 <strong>Beacon</strong> （表示可识别1，2，3号Beacon）</p>
 <img alt="_images/tagprofileloadingcreate.png" src="_images/tagprofileloadingcreate.png" />
-<img alt="_images/tagprofileloading.png" src="_images/tagprofileloading.png" />
-<p>右键添加 <strong>Ground Plane</strong> ，设置Track ID为65（代表1号Beacon）,勾选 <strong>DebugView</strong> 选项（识别到会显示坐标轴）</p>
+<img alt="_images/TagProfileLoading181.png" src="_images/TagProfileLoading181.png" />
+<p>右键添加 <strong>Ground Plane</strong> ，设置 <strong>Track ID</strong> 为65（代表 <strong>1号Beacon</strong>）,勾选 <strong>DebugView</strong> 选项（识别到会显示坐标轴）</p>
 <img alt="_images/gpcreate.png" src="_images/gpcreate.png" />
 <img alt="_images/gpconfig.png" src="_images/gpconfig.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>需注意 <strong>Tag Ground Plane</strong> 组件中有许多与定位相关的参数，若没有特殊需求，直接使用SDK中默认的配置参数即可</p>
+</div>
 </section>
-<section id="id21">
-<h3>7.添加地面<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<section id="id22">
+<h3>7.添加地面<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
 <p>在Hierachy界面点击鼠标右键，创建一个Plane，Transform设置为（0，0，0），至此一个简单的场景创建完成。</p>
 <p>此场景只包含一个地面，以及双手柄的模型，如果您需要实现更丰富的功能，如模型的抓取，UI交互等，您可以自行学习Unity XR相关
 开发知识，也可以参考 <a class="reference external" href="https://developer.ximmerse.com/#/example?id=6">从零开始教程</a> 进行学习。</p>
 </section>
 </section>
-<section id="id22">
-<h2>3.6 打包运行<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h2>
 <section id="id23">
-<h3>1.打包应用<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
-<p>选择File-&gt;Build Settings，点击Add Open Scenes按钮添加当前Scene，然后点击 <strong>Build</strong> 按钮，设置APK名称和路径，开始编译:</p>
+<h2>3.6 打包运行<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h2>
+<section id="id24">
+<h3>1.打包应用<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<p>选择 <strong>File-&gt;Build Settings</strong> ，点击 <strong>Add Open Scenes</strong> 按钮添加当前Scene，然后点击 <strong>Build</strong> 按钮，设置APK名称和路径，开始编译:</p>
 <img alt="_images/7.1_image14.jpg" src="_images/7.1_image14.jpg" />
 <p>等待编译完成，Unity将弹出保存路径，可以看到编译出的APK文件。</p>
 <img alt="_images/7.1_image15.jpg" src="_images/7.1_image15.jpg" />
 </section>
-<section id="id24">
-<h3>2.安装应用<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<section id="id25">
+<h3>2.安装应用<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
 <p>保证RhinoX Pro设备开机并电量充足，使用Type-C数据线连接开发电脑和RhinoX Pro设备，通过如下adb命令安装APK即可：</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -469,20 +471,20 @@ Positon Y值也设置为0即可。</p>
 </div>
 <img alt="_images/7.1_image16.jpg" src="_images/7.1_image16.jpg" />
 </section>
-<section id="id25">
-<h3>3.运行应用<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<section id="id26">
+<h3>3.运行应用<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
 <p>确认双手柄均已连接头显，通过手柄射线启动应用，启动应用后先将Beacon（圆盘）放在地面，戴上头显低头识别Beacon。</p>
 <img alt="_images/lookbeacon.png" src="_images/lookbeacon.png" />
 <p>此时您将看到一个地面出现在Beacon上方，如果上面的设置中勾选了DebugView，识别到之后Beacon上会显示红绿蓝三轴坐标
-，如果勾选了却不显示，则代表未识别成功，请返回  <a class="reference internal" href="#groundplane"><span class="std std-ref">创建GroundPlane</span></a> 章节检查配置</p>
+，如果勾选了却不显示，则代表未识别成功，请返回  <a class="reference internal" href="#ground-plane"><span class="std std-ref">创建Ground Plane</span></a> 章节检查配置</p>
 <img alt="_images/debugview.png" src="_images/debugview.png" />
 <p>移动Beacon的位置，重新定位Beacon，地面位置会跟着移动。当手柄在视野内移动时，手柄的模型会跟随移动。</p>
 <p>如果您能够看到上述现象，则表示您已经基本掌握了SDK的开发流程，更复杂的应用开发，您点击 <a class="reference external" href="https://forum.ximmerse.com/detail?post_id=e18b9208-3e1e-40aa-b291-329990235ad9">Unity XR培训资料</a> 进入论坛
 查看相关学习资料，预祝您开发顺利！</p>
 </section>
 </section>
-<section id="id26">
-<h2>3.7 参考示例<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h2>
+<section id="id27">
+<h2>3.7 参考示例<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h2>
 <p>如果您是初次搭建场景，您可以直接导入Sample示例进行参考，具体操作步骤如下</p>
 <img alt="_images/hellounity.png" src="_images/hellounity.png" />
 <img alt="_images/hellounitypath.png" src="_images/hellounitypath.png" />
@@ -496,7 +498,7 @@ Positon Y值也设置为0即可。</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="chapter_2.html" class="btn btn-neutral float-left" title="2.支持硬件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter_2.html" class="btn btn-neutral float-left" title="2.设备及配件简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="chapter_4.html" class="btn btn-neutral float-right" title="4.SDK功能介绍" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
